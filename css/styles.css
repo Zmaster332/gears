@@ -1,0 +1,171 @@
+﻿/*Заголовок*/
+
+
+h1{
+	text-align: center;
+	font-family: "Times New Roman";
+	color: blue;
+	height: 20px;
+}
+
+/*Разделение страниц и настройка свойств этих частей*/
+.pagePart{
+	display: block;
+	background-color: #efefef;
+	background-size: auto auto;
+    height: 90%;
+    width: 635px;
+	background-repeat: no-repeat;
+	border-color: black;
+	border-style: solid;
+	position: absolute;
+}
+
+#nameGears{
+	top: 0;
+}
+#nameDrawingProfile {
+	top: 50px;
+}
+.nameImage {	
+	text-align: center;
+	font-family: "Times New Roman";
+	font-size: 120%;
+	font-weight: normal;
+	color: black;
+	position: relative;
+	overflow: auto;
+}
+
+#imageGear {
+	background-image: url("../images/cylindrical_gears_external_01.png");	
+	top: 15px;
+}
+#imageDrawingProfile{
+	top: 65px;
+	background-image: url("../images/cylindrical_gears_standert_profile.png");
+}
+.images {
+	display: block;
+	background-size: auto 100%;
+	background-position: center center;
+	left: 0;
+    height: 40%;
+    width: 100%;
+	background-repeat: no-repeat;
+	position: relative;
+	overflow: auto;
+}
+
+#partCenter{left: 600px;}
+
+#partRight{	left: 1200px;}
+
+/*Стили центральной колонки*/
+
+#firstPartCalc, #secondPartCalc, #thirdPartCalc, #fourthPartCalc{
+	margin-top: 10px;
+	margin-bottom: 5px;
+
+
+}
+
+
+
+
+
+
+table, th, tr, td {
+border-color: black;
+	border-style: solid;
+	border-width: 1px;
+	position: relative;
+	text-align: center;
+	font-family: "Times New Roman";
+}
+table {
+	height: 33%;
+    width: 100%;
+}
+
+
+
+
+#buttonCalc {
+	top: 4px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 18px;
+	font-family: "Times New Roman";
+	background-color: #cb6868;
+	left: 33%;
+	width: 33%;
+	height: 20px;
+	border: 1px solid black;
+    border-radius: 2px 2px 2px 2px;
+	margin-top: 20px;
+	color: #f3dad1;
+	cursor: pointer;
+	position: relative;
+	}
+
+
+
+}
+
+#buttonCalc:focus{
+	top: 4px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 18px;
+	font-family: "Times New Roman";
+	background-color: #cb6868;
+	left: 33%;
+	width: 33%;
+	border: 1px solid black;
+    border-radius: 2px 2px 2px 2px;
+	cursor: pointer;
+	margin-top: 20px;
+	color: #f3dad1;
+	position: relative;
+	}
+
+#buttonCalc:hover{
+	top: 4px;
+	background-color: #d75359;
+	color: #f3dad1;
+	cursor: pointer;
+	position: relative;
+	}
+
+#buttonCalc:active{
+	
+	top: 4px;
+	background-color: #d75359;
+	border: 2px solid blue;
+	color: #f3dad1;
+	cursor: pointer;
+	position: relative;
+	}
+
+/*
+input[type='text'], textarea {
+		text-align: center;
+		font-family: "Times New Roman";
+		font-size: 100%;
+		font-weight: normal;
+		color: black;
+}
+
+
+
+
+input[type='text']:focus, input[type='password']:focus, textarea:focus {
+  border: 1px solid #fff;
+  background-color: #fff;
+  outline: none;}
+*/
+
+

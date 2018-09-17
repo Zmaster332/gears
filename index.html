@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>		
+		<meta charset="UTF-8">
+		<title>Расчет параметров передач</title>
+		<link rel="stylesheet" href="css/styles.css"/>		
+	</head>
+	
+	<body>
+		<h1>Расчет геометрических параметров зубчатых  червячных передач</h1>
+		
+		<div class="pagePart" id="partLeft">
+			<div class="nameImage" id="nameGears">Расчет геометрических параметров зубчатых  червячных передач</div>
+			<div class="images" id="imageGear"></div>
+			<div class="nameImage" id="nameDrawingProfile">Стандартный исходный контур и стандартный совпадающий контур зуба рейки
+			<br/>ГОСТ 13755-2015</div>
+			<div class="images" id="imageDrawingProfile"></div>
+		</div>
+		
+		<div class="pagePart" id="partCenter">
+			<div class="nameImage" id="firstPartCalc">1. Выберите свою передачу для расчета</div>
+				<input type="radio" name="gears" value="cylindrical" checked="checked" id="cylindricalGear"/>
+					<label for="cylindricalGear">Расчет геометрии цилиндрических зубчатых передач внешнего зацепления</label><br/>
+				<input type="radio" name="gears" value="bevelStraight" id="bevelStraightGear"/>
+					<label for="bevelStraightGear">Расчет геометрии зубчатых конических передач с прямыми зубьями</label><br/>
+				<input type="radio" name="gears" value="bevelRound" id="bevelRoundGear"/>
+					<label for="bevelRoundGear">Расчет геометрии зубчатых конических передач с круговыми зубьями</label><br/>
+				<input type="radio" name="gears" value="worm" id="wormGear"/>
+					<label for="wormGear">Расчет геометрии червячных цилиндрических передач</label>
+					
+			<div class="nameImage" id="secondPartCalc">2. Введите исходные данные</div>
+			<form method="post">
+			<table id="vvedi">
+				<thead>
+					<th>Параметр</th>
+					<th>Вводимые данные</th>
+					<th>Доп. информация</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Угол профиля исходного контура (&alpha;)</td>
+						<td>							
+								<input type="text" id="alfaCorn" value="20"/> &deg;
+								<br/>
+								<input type="text" id="alfaMin" value="0"/> '
+								<br/>
+								<input type="text" id="alfaSec" value="0"/> "					
+						</td>
+						<td>					
+							<div id="feedbackAlfaCorn"></div>
+							<div id="feedbackAlfaMin"></div>
+							<div id="feedbackAlfaSec"></div>
+							<div id="feedbackAlfaRad"></div>
+						</td>						
+					</tr>
+					<tr>
+						<td>Угол наклона зубьев (&beta;)</td>
+						<td><input type="text" id="betaCorn" value="0"/>&deg
+								<br/>
+								<input type="text" id="betaMin" value="0"/> '
+								<br/>
+								<input type="text" id="betaSec" value="0"/> "
+						</td>	
+						<td><div id="feedbackBetaCorn">Если зубья прямые то 0&deg</div>
+							<div id="feedbackBetaMin"></div>
+							<div id="feedbackBetaSec"></div>
+							<div id="feedbackBetaRad"></div>
+						</td>
+						
+					</tr>
+					<tr>
+						<td>Модуль (<em>m</em>)</td>
+						<td><input type="text" id="module" value="0"/></td>
+						<td><div id="errorModule"></div></td>
+					</tr>
+					<tr>
+						<td>Число зубьев (<em>z</em>)</td>
+						<td><input type="text" id="numberTeeths" value="0"/></td>
+						<td><div id="errorNumberTeeths"></div></td>
+					</tr>
+					<tr>
+						<td>Высота зуба (<em>h<sub>p</sub></em>)</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Коэффициент смещения (<em>x</em>)</td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="nameImage" id="thirdPartCalc">3. Если исходный контур не стандартный. введите дополнительные параметры</div>
+			<table>
+				<thead>
+					<th>Параметры</th>
+					<th>Краткое описание</th>
+					<th>Вводимые данные</th>
+					<th>Доп. информация</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>&alpha;</td>
+						<td>угол профиля, &deg;</td>
+						<td>20</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>h<sub>a</sub><sup>*</sup></td>
+						<td>коэффициент высоты головки</td>
+						<td>0</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>h<sub>1</sub><sup>*</sup></td>
+						<td>коэффициент граничной высоты</td>
+						<td>0</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>C<sup>*</sup></td>
+						<td>коэффициент радиального зазора</td>
+						<td>0</td>
+						<td></td>
+					</tr>
+					
+				</tbody>
+			</table>
+			<div id="buttonCalc" >рассчитать</div>
+		</div>
+		
+		<div class="pagePart" id="partRight">
+			<div class="nameImage" id="fourthPartCalc">4. Результаты расчета</div><table>
+				<thead>
+					<th>Параметр</th>
+					<th>Расчетные данные</th>
+					<th>Доп. информация</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Модуль (<em>m</em>)</td>
+						<td><div id="feedbackModule"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Число зубьев (<em>z</em>)</td>
+						<td><div id="feedbackNumberTeeths"></div></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Делительный диаметр (<em>d</em>)</td>
+						<td><div id="feedbackDiamDiv"></div></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Делительный радиус (<em>r</em>)</td>
+						<td><div id="feedbackRadDiv"></div></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Основной диаметр (<em>d<sub>b</sub></em>)</td>
+						<td><div id="feedbackDiamBase"></div></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Основной радиус (<em>r<sub>b</sub></em>)</td>
+						<td><div id="feedbackRadBase"></div></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+				
+		</div>	
+		
+		
+		<script src="js/example.js"></script>		
+	</body>
+</html>
