@@ -61,7 +61,7 @@
 								<br/>
 								<input type="text" id="betaSec" value="0"/> "
 						</td>	
-						<td><div id="feedbackBetaCorn">Если зубья прямые то 0&deg</div>
+						<td><div id="feedbackBetaCorn">Для прямых зубьев 0&deg;0'0"</div>
 							<div id="feedbackBetaMin"></div>
 							<div id="feedbackBetaSec"></div>
 							<div id="feedbackBetaRad"></div>
@@ -70,12 +70,12 @@
 					</tr>
 					<tr>
 						<td>Модуль (<em>m</em>)</td>
-						<td><input type="text" id="module" value="0"/></td>
+						<td><input type="text" id="module" value="0.3"/></td>
 						<td><div id="errorModule"></div></td>
 					</tr>
 					<tr>
 						<td>Число зубьев (<em>z</em>)</td>
-						<td><input type="text" id="numberTeeths" value="0"/></td>
+						<td><input type="text" id="numberTeeths" value="345"/></td>
 						<td><div id="errorNumberTeeths"></div></td>
 					</tr>
 					<tr>
@@ -85,44 +85,30 @@
 					</tr>
 					<tr>
 						<td>Коэффициент смещения (<em>x</em>)</td>
-						<td></td>
-						<td></td>
+						<<td><input type="text" id="shift" value="0"/></td>
+						<td><div id="feedbackShift">0, если не задано</div></td>
 					</tr>
 				</tbody>
 			</table>
 			<div class="nameImage" id="thirdPartCalc">3. Если исходный контур не стандартный. введите дополнительные параметры</div>
 			<table>
 				<thead>
-					<th>Параметры</th>
-					<th>Краткое описание</th>
+					<th>Параметр</th>
 					<th>Вводимые данные</th>
 					<th>Доп. информация</th>
 				</thead>
 				<tbody>
 					<tr>
-						<td>&alpha;</td>
-						<td>угол профиля, &deg;</td>
-						<td>20</td>
-						<td></td>
+						<td>Коэффициент смещения ответного колеса(<em>x<sub>2</sub></em>)</td>
+						<td><input type="text" id="shift2" value="0"/></td>
+						<td><div id="feedbackShift2"></div></td>
 					</tr>
 					<tr>
-						<td>h<sub>a</sub><sup>*</sup></td>
-						<td>коэффициент высоты головки</td>
-						<td>0</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>h<sub>1</sub><sup>*</sup></td>
-						<td>коэффициент граничной высоты</td>
-						<td>0</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>C<sup>*</sup></td>
-						<td>коэффициент радиального зазора</td>
-						<td>0</td>
-						<td></td>
-					</tr>
+						<td>Число зубьев ответного колеса(<em>z<sub>2</sup></em>)</td>
+						<td><input type="text" id="numberTeeths2" value="55"/></td>
+						<td><div id="feedbackNumberTeeths2"></div></td>
+					</tr>					
+					
 					
 				</tbody>
 			</table>

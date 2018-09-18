@@ -1,49 +1,17 @@
-﻿/*function checkAngle() {                             // Объявляем функцию проверки правильности угла
-  var elMsg = document.getElementById('feedback');     // Получаем элемент обратной связи
-  
-  if ((toothTiltAngle.value<=90)&&(toothTiltAngle.value>=0)) {                         // Если имя пользователя слишком короткое
-	elMsg.textContent = toothTiltAngle.value; // Указываем сообщение
-	}
-	else {                                             // Иначе
-    elMsg.textContent = Math.PI;                            // Сбрасываем сообщение
-  }
-}
-/*
-function check() {
-    if (toothTiltAngl.value = 'cylindrical') {
-        vibor.style.display = 'none';
-    }
-    else  {
-        vibor.style.display = '';
-    }
-}
-
-var toothTiltAngle; //угол наклона зуба
-
-var toothTiltAngle = document.getElementById('angle');	
-toothTiltAngle.value=20;	//задаем первоначальное значение
-toothTiltAngle.addEventListener('keydown', checkAngle,false)	//Проверяем угол наклона зубьев на правильность ввода
-toothTiltAngle.addEventListener('blur', checkAngle,false)	//Проверяем угол наклона зубьев на правильность ввода
-
-var toothTiltAngl = document.getElementById('choiceNameGears');
-vibor = document.getElementById('vvedi');
-//toothTiltAngl.addEventListener('change',check,false);
-
-//Расчет параметров передачи
-*/
-
-
-var alfaCorn = document.getElementById('alfaCorn');
+﻿var alfaCorn = document.getElementById('alfaCorn');
 var alfaMin = document.getElementById('alfaMin');
 var alfaSec = document.getElementById('alfaSec');
 var betaCorn = document.getElementById('betaCorn');
 var betaMin = document.getElementById('betaMin');
 var betaSec = document.getElementById('betaSec');
-
 var module = document.getElementById('module');
 var numberTeeths = document.getElementById('numberTeeths');
+var shift = document.getElementById('shift');
+var numberTeeths2 = document.getElementById('numberTeeths2');
+var shift2 = document.getElementById('shift2');
 
-/*//var feedbackAlfaRad = document.getElementById('feedbackAlfaRad');
+
+/*var feedbackAlfaRad = document.getElementById('feedbackAlfaRad');
 //var feedbackAlfaCorn = document.getElementById('feedbackAlfaCorn');	//Получаем элемент обратной связи
 //var feedbackAlfaMin = document.getElementById('feedbackAlfaMin');		//Получаем элемент обратной связи
 //var feedbackAlfaSec = document.getElementById('feedbackAlfaSec');	//Получаем элемент обратной связи
@@ -61,6 +29,9 @@ betaSec.addEventListener('blur', checkBetaSec, false);
 
 module.addEventListener('blur', checkModule, false);
 numberTeeths.addEventListener('blur', checkNumberTeeths, false);
+shift.addEventListener('blur', checkShift, false);
+numberTeeths2.addEventListener('blur', checkNumberTeeths2, false);
+shift2.addEventListener('blur', checkShift2, false);
 
 //Запуск рассчета
 buttonCalc.addEventListener('click',function() {
@@ -72,9 +43,9 @@ buttonCalc.addEventListener('click',function() {
 // Объявляем функцию проверки правильности введенных градусов угла
 function checkAlfaCorn() {                             
   
-  if ((alfaCorn.value<=25)&&(alfaCorn.value>=15)) {						
+  if ((alfaCorn.value<=35)&&(alfaCorn.value>=15)) {						
 		feedbackAlfaCorn.textContent = alfaCorn.value + '°'; 					//Указываем сообщение
-  } else if (alfaCorn.value>25){
+  } else if (alfaCorn.value>35){
 		feedbackAlfaCorn.textContent = 'Угол слишком большой' ;			//Если угол большой
   } else if (!isInteger(alfaCorn.value)) {
       feedbackAlfaCorn.textContent = 'Введено не целое число';			//Проверка на целостность
@@ -104,7 +75,6 @@ function checkAlfaSec() {
         feedbackAlfaSec.textContent = 'Значение должно быть в пределах от 0\' до 60\'' ;	//Если угол маленький
     }
 }
-
 // Объявляем функцию проверки правильности введенных градусов угла
 function checkBetaCorn() {                             
   
@@ -141,8 +111,6 @@ function checkBetaSec() {
     }
 }
 
-
-
 // Объявляем функцию проверки правильности введенного модуля и замены
 function checkModule() {	
 	var moduleMass = [], moduleEnd = '';
@@ -165,7 +133,7 @@ function checkModule() {
 		module.value = 0;	
 	}
 }
-// Объявляем функцию проверки правильности введенных градусов угла
+// Объявляем функцию проверки правильности введенных зубьев
 function checkNumberTeeths() {                             
   
   if (numberTeeths.value>0) {						
@@ -175,23 +143,82 @@ function checkNumberTeeths() {
 		errorNumberTeeths.textContent = 'Введеное не целое положительное число' ;			//Если угол большой
   } else if (!isInteger(numberTeeths.value)) {
       errorNumberTeeths.textContent = 'Введеное не целое положительное число';			//Проверка на целостность
-  } else {
-      errorNumberTeeths.textContent = 'Угол сшишком мал'; 				//Если не целое число
-  }
+  } 
+}
+// Объявляем функцию проверки правильности введенного смещения и замены
+function checkShift() {	
+	var shiftMass = [], shiftEnd = '';
+	for (i=0; i<=shift.value.length; i++){
+		shiftMass[i] = shift.value.charAt(i);
+		if (shiftMass[i]==',') {
+			shiftMass[i]='.'		
+		}
+		shiftEnd += shiftMass[i];
+	}	
+	if (isNaN(shiftEnd/1)) { 
+		feedbackShift.textContent = 'Введено не число';
+		shift.value = 0;		
+	}else if (((shiftEnd/1)>=(-2.0))&&((shiftEnd/1)<=2.0)){
+		shift.value = shiftEnd/1;
+		feedbackShift.textContent = shift.value;
+	}else{
+		feedbackShift.textContent = 'Значение должно быть в пределах от -2.0 до 2.0' ;
+		shift.value = 0;	
+	}
+}
+// Объявляем функцию проверки правильности введенных зубьев2
+function checkNumberTeeths2() {                            
+    if (numberTeeths2.value>=0) {	
+		feedbackNumberTeeths2.textContent = numberTeeths2.value;
+	} else if (!isInteger(numberTeeths2.value)) {
+		feedbackNumberTeeths2.textContent = 'Введеное не целое положительное число';			//Проверка на целостность
+		numberTeeths2.value = 0;		
+	} else{
+		feedbackNumberTeeths2.textContent = 'Введеное не целое положительное число' ;			//Если угол большой
+		numberTeeths2.value = 0;
+  } 
+}
+// Объявляем функцию проверки правильности введенного смещения2 и замены
+function checkShift2() {	
+	var shiftMass = [], shiftEnd = '';
+	for (i=0; i<=shift2.value.length; i++){
+		shiftMass[i] = shift2.value.charAt(i);
+		if (shiftMass[i]==',') {
+			shiftMass[i]='.'		
+		}
+		shiftEnd += shiftMass[i];
+	}	
+	if (isNaN(shiftEnd/1)) { 
+		feedbackShift2.textContent = 'Введено не число';
+		shift2.value = 0;		
+	}else if (((shiftEnd/1)>=(-2.0))&&((shiftEnd/1)<=2.0)){
+		shift2.value = shiftEnd/1;
+		feedbackShift2.textContent = shift2.value;
+	}else{
+		feedbackShift2.textContent = 'Значение должно быть в пределах от -2.0 до 2.0' ;
+		shift2.value = 0;	
+	}
 }
 
-
-
 //Перевод значения угла a(альфа) в радианы
-function calculation(alfaCorn,alfaMin,alfaSec,betaCorn,betaMin,betaSec,m,z) {
+function calculation(alfaCorn,alfaMin,alfaSec,betaCorn,betaMin,betaSec,module,z) {
 
-	var alfaTR;			//Угол профиля в радианах
-	var diamDiv;			//Делительный диаметp (d)
-	var radDiv;			//Делительный радиус (r)
-	var diamBase;			//Диаметр основной окружности (db)
-	var radBase;			//Радиус основной окружности (rb)
-
-	
+	var x1 = shift.value;			//Смещение 1й шестерни
+	var x2 = shift2.value;			//Смещение 2й шестерни
+	var aDiv;						//Делительное межосевое расстояние
+	var aW;							//Межосевое расстояние
+	var u;							//Передаточное отношение
+	var alfaT;						//Угол профиля в радианах
+	var diamDiv;					//Делительный диаметp (d)
+	var radDiv;						//Делительный радиус (r)
+	var diamBase;					//Диаметр основной окружности (db)
+	var radBase;					//Радиус основной окружности (rb)
+	var diamW;						//Начальный диаметр
+	var coefHeightHead = 1;			//Коэффициент высоты головки зуба(ha*)
+	var z1 = z.value/1;				//Число зубьев шестерни 1
+	var z2 = numberTeeths2.value/1;	//Число зубьев шестерни 2
+	var m = module.value;			//Модуль
+		
 	//Перепроверка введенных данных
 	checkAlfaCorn();
 	checkAlfaMin();
@@ -201,39 +228,77 @@ function calculation(alfaCorn,alfaMin,alfaSec,betaCorn,betaMin,betaSec,m,z) {
 	checkBetaSec();
 	checkModule();
 	checkNumberTeeths();
+	checkShift();
+	checkNumberTeeths2();
+	checkShift2();
 	
 	//Перевод градусов угла "альфа" в радианы
-	var alfaR = (alfaCorn.value/1 + alfaMin.value/60 + alfaSec.value/3600)*(Math.PI/180);
+	var alfa = (alfaCorn.value/1 + alfaMin.value/60 + alfaSec.value/3600)*(Math.PI/180);
 	//Перевод градусов угла "бета" в радианы
-	var betaR = (betaCorn.value/1 + betaMin.value/60 + betaSec.value/3600)*(Math.PI/180);
+	var beta = (betaCorn.value/1 + betaMin.value/60 + betaSec.value/3600)*(Math.PI/180);
 	
+	//Расчет делительного межосевого расстояния
+	var aDiv = ((z1+z2)*m)/(2*Math.cos(beta));
 	
 	//Расчет угла профиля
-	alfaTR = Math.atan(Math.tan(alfaR)/Math.cos(betaR));
+	var alfaT = Math.atan(Math.tan(alfa)/Math.cos(beta));
+	
+	//Расчет инвалюты угла профиля
+	var invAlfaT = Math.tan(alfaT) - alfaT;
+	
+	//Расчет инвалюты межосевого расстояния
+	var invAlfaTW = (2*(x1+x2)*Math.tan(alfa))/(z1+z2) + invAlfaT;
+	
+	/*
+	//Расчет инвалюты межосевого расстояния
+	var invAW = ((z1/1+z2/1)/(2*Math.cos(beta)))*(Math.cos(alfaT)/Math.cos(alfaTW));	
+	*/
 	
 	//Расчет делительного диаметра(без угла наклона)
-	diamDiv = (z.value*m.value)/(Math.cos(betaR));
+	diamDiv = (z1*m)/(Math.cos(beta));
 	//Расчет делительного радиуса
 	radDiv = diamDiv/2;
 	
 	//Расчет диаметра основной окружности
-	diamBase = (diamDiv*Math.cos(alfaTR));
+	diamBase = (diamDiv*Math.cos(alfaT));
+	
 	//Расчет радиуса основной окружности
 	radBase = diamBase/2;
 	
-	/*//Определение диаметра и радиуса выступов
+	/*
+	//Расчет передаточного отношения
+	//u = z2/z;
+	
+	//
+		
+	//Определение диаметра и радиуса выступов
 	da = divDiam + 2*m;
 	ra = da/2;
+	
+	//Определение угла наклона начала эвольвенты в зависимости от коэфф. смещения	
+    if (x==0) {		
+        df = da - 2*h;
+		rf = df/2;
+        beta = Math.PI/(2*z) + inva;
+	} else {
+		beta = Math.PI/(2*z) + inva + 2*(Math.sin(alfaR)/Math.cos(alfaR))*x/z;
+	}
 	*/
+	
+	
+	
+	
+	
 	
 	//Вывод результатов расчета в таблицу
 	
-	feedbackAlfaRad.textContent = alfaR.toFixed(5);
-	feedbackBetaRad.textContent = betaR.toFixed(5);
+	feedbackAlfaRad.textContent = alfa.toFixed(5);
+	feedbackBetaRad.textContent = beta.toFixed(5);
+	feedbackRadBase.textContent = aDiv;
 	if(diamDiv==0){feedbackDiamDiv.textContent ='';}else{feedbackDiamDiv.textContent = diamDiv.toFixed(3);}
-	if(diamDiv==0){feedbackRadDiv.textContent ='';}else{feedbackRadDiv.textContent = radDiv.toFixed(3);}
-	if(diamDiv==0){feedbackDiamBase.textContent ='';}else{feedbackDiamBase.textContent = diamBase.toFixed(3);}
-	if(diamDiv==0){feedbackRadBase.textContent ='';}else{feedbackRadBase.textContent = radBase.toFixed(3);}
+	if(radDiv==0){feedbackRadDiv.textContent ='';}else{feedbackRadDiv.textContent = radDiv.toFixed(3);}
+	if(diamBase==0){feedbackDiamBase.textContent ='';}else{feedbackDiamBase.textContent = diamBase.toFixed(3);}
+	//if(radBase==0){feedbackRadBase.textContent ='';}else{feedbackRadBase.textContent = radBase.toFixed(3);}
 	
 	
 	
@@ -290,11 +355,6 @@ feedbackAlfaR.textContent = alfaR;*/
 
 //Проверка числа на целостность
 function isInteger(value){
-
-
-
-
-
 	if ((undefined === value) || (null === value)) {
 		return false;
 	}
