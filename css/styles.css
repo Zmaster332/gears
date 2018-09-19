@@ -69,7 +69,9 @@ h1{
 
 
 }
-
+#table4{
+	height: 50%;
+}
 
 
 
@@ -112,7 +114,7 @@ table {
 
 
 
-}
+
 
 #buttonCalc:focus{
 	top: 4px;
