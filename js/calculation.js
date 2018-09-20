@@ -130,15 +130,13 @@ function calculation() {
 	}
 	
 	//Опpеделение толщины вершины зуба 
-	var cosa01 = (dD*Math.cos(alfa))/dA;
-	var tana01 = (Math.sqrt(1-Math.pow(cosa01,2)))/cosa01;
-	var alfa01 = Math.atan(tana01);
-	var inva01 = tana01 - alfa01;
-	var se1 = dA*(Math.PI/(2*z1)+2*x1*(Math.tan(alfa))/z1+invAlfa - inva01);
-
+	var sTA = thick(dD,dA,alfaT,alfa,z1,x1);
 	
+	//Толщина зуба
+	var sP = (Math.PI/2+2*x1*Math.tan(alfa))*m;
 	
-	
+	//Осевой шаг
+	var p = Math.PI*m;
 	
 	
 
@@ -146,6 +144,7 @@ function calculation() {
 	feedbackAlfaRad.textContent = alfa.toFixed(5);
 	feedbackBetaRad.textContent = beta.toFixed(5);
 	
+	if(p==0){feedbackStep.textContent ='';}else{feedbackStep.textContent = p.toFixed(3);}
 	if(dD==0){feedbackDiamDiv.textContent ='';}else{feedbackDiamDiv.textContent = dD.toFixed(3);}
 	if(rD==0){feedbackRadDiv.textContent ='';}else{feedbackRadDiv.textContent = rD.toFixed(3);}
 	if(dB==0){feedbackDiamBase.textContent ='';}else{feedbackDiamBase.textContent = dB.toFixed(3);}
@@ -153,11 +152,13 @@ function calculation() {
 	if(dW==0){feedbackDiamInitial.textContent ='';}else{feedbackDiamInitial.textContent = dW.toFixed(3);}
 	if(rW==0){feedbackRadInitial.textContent ='';}else{feedbackRadInitial.textContent = rW.toFixed(3);}
 	if(dA==0){feedbackDiamTops.textContent ='';}else{feedbackDiamTops.textContent = dA.toFixed(3);}
-	if(se1==0){feedbackThicknessAddendum.textContent ='';}else{feedbackThicknessAddendum.textContent = se1.toFixed(3);}
+	if(rA==0){feedbackRadTops.textContent ='';}else{feedbackRadTops.textContent = rA.toFixed(3);}
+	if(sTA==0){feedbackThickAddendum.textContent ='';}else{feedbackThickAddendum.textContent = sTA.toFixed(3);}
+	if(sP==0){feedbackThickNormal.textContent ='';}else{feedbackThickNormal.textContent = sP.toFixed(3);}
 	
 	
-	check.textContent = se1;
-	check2.textContent = x1.toFixed(5);
+	check.textContent = betaRas;
+	//check2.textContent = alfaA;
 
 
 
@@ -182,8 +183,13 @@ function invaluta(inv){
 
 }
 
-
-
+//Расчет толщины зуба в заданной точке (для построения эвольвенты),
+//по делительному диаметру и углу профиля
+function thick(dD,d,aT,a,z,x){
+	var aA = Math.acos(dD*Math.cos(aT)/d);
+	var s = d*(((Math.PI/2+(2*x*Math.tan(a)))/z + (Math.tan(aT)-aT) - (Math.tan(aA)-aA)));
+	return s;
+}
 
 
 
