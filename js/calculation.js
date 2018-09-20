@@ -69,7 +69,7 @@ function calculation() {
 	u = z2/z1;
 	
 	//Расчет  разных типах передач
-    if((beta==0)&&(xSumm==0)){
+    if((beta===0)&&(xSumm===0)){
 		//Угол профиля
 		alfaT = alfa;
 		//Угол зацепления
@@ -96,7 +96,7 @@ function calculation() {
 		//Расчет инвалюты угла зацепления
 		invAlfaTW = (2*(x1+x2)*Math.tan(alfa))/(z1+z2) + invAlfaT;
 		//Перевод инвалюты угла зацепления в радианы
-		alfaTW = invaluta(invAlfaTW);
+		alfaTW = invToCorn(invAlfaTW);
 		//Расчет делительного межосевого расстояния
 		aDiv = ((z1+z2)*m)/(2*Math.cos(beta));
 		//Межосевое расстояние
@@ -121,7 +121,7 @@ function calculation() {
     dA = dD + 2*(coefHeightHead+x1+yDiff)*m;
     rA = dA/2;
 	
-	if (x1==0) {
+	if (x1===0) {
 		invAlfa = Math.tan(alfa) - alfa;
         betaRas = Math.PI/(2*z1) + invAlfa;
 	} else {
@@ -144,20 +144,20 @@ function calculation() {
 	feedbackAlfaRad.textContent = alfa.toFixed(5);
 	feedbackBetaRad.textContent = beta.toFixed(5);
 	
-	if(p==0){feedbackStep.textContent ='';}else{feedbackStep.textContent = p.toFixed(3);}
-	if(dD==0){feedbackDiamDiv.textContent ='';}else{feedbackDiamDiv.textContent = dD.toFixed(3);}
-	if(rD==0){feedbackRadDiv.textContent ='';}else{feedbackRadDiv.textContent = rD.toFixed(3);}
-	if(dB==0){feedbackDiamBase.textContent ='';}else{feedbackDiamBase.textContent = dB.toFixed(3);}
-	if(rB==0){feedbackRadBase.textContent ='';}else{feedbackRadBase.textContent = rB.toFixed(3);}
-	if(dW==0){feedbackDiamInitial.textContent ='';}else{feedbackDiamInitial.textContent = dW.toFixed(3);}
-	if(rW==0){feedbackRadInitial.textContent ='';}else{feedbackRadInitial.textContent = rW.toFixed(3);}
-	if(dA==0){feedbackDiamTops.textContent ='';}else{feedbackDiamTops.textContent = dA.toFixed(3);}
-	if(rA==0){feedbackRadTops.textContent ='';}else{feedbackRadTops.textContent = rA.toFixed(3);}
-	if(sTA==0){feedbackThickAddendum.textContent ='';}else{feedbackThickAddendum.textContent = sTA.toFixed(3);}
-	if(sP==0){feedbackThickNormal.textContent ='';}else{feedbackThickNormal.textContent = sP.toFixed(3);}
+	if(p===0){feedbackStep.textContent ='';}else{feedbackStep.textContent = p.toFixed(3);}
+	if(dD===0){feedbackDiamDiv.textContent ='';}else{feedbackDiamDiv.textContent = dD.toFixed(3);}
+	if(rD===0){feedbackRadDiv.textContent ='';}else{feedbackRadDiv.textContent = rD.toFixed(3);}
+	if(dB===0){feedbackDiamBase.textContent ='';}else{feedbackDiamBase.textContent = dB.toFixed(3);}
+	if(rB===0){feedbackRadBase.textContent ='';}else{feedbackRadBase.textContent = rB.toFixed(3);}
+	if(dW===0){feedbackDiamInitial.textContent ='';}else{feedbackDiamInitial.textContent = dW.toFixed(3);}
+	if(rW===0){feedbackRadInitial.textContent ='';}else{feedbackRadInitial.textContent = rW.toFixed(3);}
+	if(dA===0){feedbackDiamTops.textContent ='';}else{feedbackDiamTops.textContent = dA.toFixed(3);}
+	if(rA===0){feedbackRadTops.textContent ='';}else{feedbackRadTops.textContent = rA.toFixed(3);}
+	if(sTA===0){feedbackThickAddendum.textContent ='';}else{feedbackThickAddendum.textContent = sTA.toFixed(3);}
+	if(sP===0){feedbackThickNormal.textContent ='';}else{feedbackThickNormal.textContent = sP.toFixed(3);}
 	
 	
-	check.textContent = betaRas;
+	check.textContent = alfa;
 	//check2.textContent = alfaA;
 
 
@@ -166,7 +166,10 @@ function calculation() {
 }
 
 //Перевод инвалюты в число
-function invaluta(inv){
+
+//Метод Ласкина (уголы от 0 до 64,87°)
+/*
+function invToCorn(inv){
 
 	var e = 0.00001;
 	var inv0 = Math.pow((3*inv),(1/3));
@@ -181,14 +184,19 @@ function invaluta(inv){
 	while(Math.abs(alfaA2)>e);
 	return inv0;
 
+}*/
+//Метод Ченга (уголы от 0 до 74,87°)
+function invToCorn(inv){
+    return Math.pow((3*inv),(1/3)) - (2 * inv) / 5 + (9 / 175) * Math.pow(3, (2 / 3)) * Math.pow(inv, (7 / 3)) - (144 / 67375) * Math.pow(inv, (11 / 3)) - (49711 / 153278125) * Math.pow(3, (1 / 3)) * Math.pow(inv, (13 / 3));
 }
+
 
 //Расчет толщины зуба в заданной точке (для построения эвольвенты),
 //по делительному диаметру и углу профиля
-function thick(dD,d,aT,a,z,x){
-	var aA = Math.acos(dD*Math.cos(aT)/d);
-	var s = d*(((Math.PI/2+(2*x*Math.tan(a)))/z + (Math.tan(aT)-aT) - (Math.tan(aA)-aA)));
-	return s;
+
+function thick(dD,d,aT,a,z,x) {
+    var aA = Math.acos(dD * Math.cos(aT) / d);
+    return d * (((Math.PI / 2 + (2 * x * Math.tan(a))) / z + (Math.tan(aT) - aT) - (Math.tan(aA) - aA)));
 }
 
 

@@ -2,18 +2,18 @@
 function checkCorn(corn, feedback, unit) {
 
 	var c = corn.value;
-	var f = feedback.textContent;
+    var f = feedback.textContent;
 
     if ((corn.value<=40)&&(corn.value>=0)) {
-        feedback.textContent = corn.value + unit; 					//Указываем сообщение
+        feedback.textContent = corn.value + unit;           //Указываем сообщение
     } else if (corn.value>40){
-        feedback.textContent = 'Угол слишком большой' ;			//Если угол большой
+        feedback.textContent = 'Угол слишком большой' ;     //Если угол большой
 		corn.value = 20;
     } else if (!isInteger(corn.value)) {
-        feedback.textContent = 'Введено не целое число';			//Проверка на целостность
+        feedback.textContent = 'Введено не целое число';    //Проверка на целостность
 		corn.value = 20;
     } else {
-        feedback.textContent = 'Угол сшишком мал'; 				//Если не целое число
+        feedback.textContent = 'Угол сшишком мал';          //Если не целое число
 		corn.value = 20;
     }
 }
@@ -22,15 +22,20 @@ function checkCorn(corn, feedback, unit) {
 function checkMS(mS,feedback,unit) {
 
     if ((mS.value<=60)&&(mS.value>=0)) {
-        feedback.textContent = mS.value + unit; 					//Указываем сообщение
+        feedback.textContent = mS.value + unit;             //Указываем сообщение
     } else if (!isInteger(mS.value)) {
-        feedback.textContent = 'Введено не целое число';			//Проверка на целостность
+        feedback.textContent = 'Введено не целое число';      //Проверка на целостность
 		mS.value = 0;
 		
     } else {
         feedback.textContent = 'Значение должно быть в пределах от 0\' до 60\'' ;	//Если угол маленький
 		mS.value = 0 + unit;
     }
+    if(mS == 13) {
+
+    }
+
+
 }
 
 // Объявляем функцию проверки правильности введенного модуля и замены неправильного введенного значения
@@ -38,7 +43,7 @@ function checkModule(module,feedback,error) {
     var moduleMass = [], moduleEnd = '';
     for (i=0; i<=module.value.length; i++){
         moduleMass[i] = module.value.charAt(i);
-        if (moduleMass[i]==',') {
+        if (moduleMass[i]===',') {
             moduleMass[i]='.'
         }
         moduleEnd += moduleMass[i];
@@ -79,7 +84,7 @@ function checkShift(shift,feedback) {
     var shiftMass = [], shiftEnd = '';
     for (i=0; i<=shift.value.length; i++){
         shiftMass[i] = shift.value.charAt(i);
-        if (shiftMass[i]==',') {
+        if (shiftMass[i]===',') {
             shiftMass[i]='.'
         }
         shiftEnd += shiftMass[i];
@@ -101,5 +106,5 @@ function isInteger(value){
     if ((undefined === value) || (null === value)) {
         return false;
     }
-    return value % 1 == 0;
+    return value % 1 === 0;
 }

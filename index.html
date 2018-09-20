@@ -73,9 +73,14 @@
 						<td><div id="errorNumberTeeths"></div></td>
 					</tr>
 					<tr>
-						<td>Высота зуба (<em>h<sub>p</sub></em>)</td>
-						<td></td>
-						<td></td>
+						<td><label for="numberTeeths2">Число зубьев ответного колеса(<em>z<sub>2</sub></em>)</label></td>
+						<td><input type="text" id="numberTeeths2" value="55"/></td>
+						<td><div id="errorNumberTeeths2"></div></td>
+					</tr>
+					<tr>
+						<td><label for="shift2">Коэффициент смещения ответного колеса(<em>x<sub>2</sub></em>)</label></td>
+						<td><input type="text" id="shift2" value="0"/></td>
+						<td><div id="feedbackShift2"></div></td>
 					</tr>
 					<tr>
 						<td><label for="shift">Коэффициент смещения (<em>x</em>)</label></td>
@@ -84,7 +89,8 @@
 					</tr>
 				</tbody>
 			</table>
-			<div class="nameImage" id="thirdPartCalc">3. Если исходный контур не стандартный. введите дополнительные параметры</div>
+			<div id="buttonCalc" >рассчитать</div></div>
+			<!--<div class="nameImage" id="thirdPartCalc">3. Если исходный контур не стандартный. введите дополнительные параметры</div>
 			<table>
 				<thead>
 					<th>Параметр</th>
@@ -92,21 +98,12 @@
 					<th>Доп. информация</th>
 				</thead>
 				<tbody>
-				<tr>
-					<td><label for="numberTeeths2">Число зубьев ответного колеса(<em>z<sub>2</sub></em>)</label></td>
-					<td><input type="text" id="numberTeeths2" value="55"/></td>
-					<td><div id="errorNumberTeeths2"></div></td>
-				</tr>
-				<tr>
-					<td><label for="shift2">Коэффициент смещения ответного колеса(<em>x<sub>2</sub></em>)</label></td>
-					<td><input type="text" id="shift2" value="0"/></td>
-					<td><div id="feedbackShift2"></div></td>
-				</tr>
+
 				</tbody>
 			</table>
-			<div id="buttonCalc" >рассчитать</div>
-		</div>
-		
+
+		</div>-->
+
 		<div class="pagePart" id="partRight">
 			<div class="nameImage" id="fourthPartCalc">4. Результаты расчета</div>
 			<table id="table4">
@@ -198,16 +195,12 @@
 		<script src="js/verification.js"></script>
 		<script src="js/calculation.js"></script>
 		<script src="js/listeners.js"></script>
+
 					
-		
-		
-		
-		
-		
-		
 
-
-
-
+		
+		
+		
+		
 	</body>
 </html>
