@@ -11,6 +11,7 @@ betaMin.addEventListener('blur',function(){checkMS(betaMin,feedbackBetaMin,unit 
 betaSec.addEventListener('blur',function(){checkMS(betaSec,feedbackBetaSec,unit = '')},false);
 
 module.addEventListener('blur',function(){checkModule(module,feedbackModule,errorModule)},false);
+rollD.addEventListener('blur',function(){checkRoll(rollD,errorRollD)},false);
 
 numberTeeths.addEventListener('blur',function(){checkNumberTeeths(numberTeeths,feedbackNumberTeeths,errorNumberTeeths)},false);
 numberTeeths2.addEventListener('blur',function(){checkNumberTeeths(numberTeeths2,feedbackNumberTeeths2,errorNumberTeeths2)},false);

@@ -34,8 +34,6 @@ function checkMS(mS,feedback,unit) {
     if(mS == 13) {
 
     }
-
-
 }
 
 // Объявляем функцию проверки правильности введенного модуля и замены неправильного введенного значения
@@ -60,6 +58,28 @@ function checkModule(module,feedback,error) {
         error.textContent = 'Значение должно быть в пределах от 0.05 до 100' ;
 		feedback.textContent = 'Не введено';
         module.value = 0;
+    }
+}
+
+// Объявляем функцию проверки правильности введенного размеров роликов и замены неправильного введенного значения
+function checkRoll(roll,error) {
+    var rollMass = [], rollEnd = '';
+    for (i=0; i<=roll.value.length; i++){
+        rollMass[i] = roll.value.charAt(i);
+        if (rollMass[i]===',') {
+            rollMass[i]='.'
+        }
+        rollEnd += rollMass[i];
+    }
+    if (isNaN(rollEnd/1)) {
+        error.textContent = 'Введено не число';
+        roll.value = 0;
+    }else if (((rollEnd/1)>=0)&&((rollEnd/1)<=26.069)){
+        roll.value = rollEnd/1;
+        error.textContent = roll.value;
+    }else{
+        error.textContent = 'Значение должно быть в пределах от 0.004 до 26.069' ;
+        roll.value = 0;
     }
 }
 

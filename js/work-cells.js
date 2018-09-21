@@ -8,6 +8,7 @@ var betaMin = document.getElementById('betaMin');
 var betaSec = document.getElementById('betaSec');
 
 var module = document.getElementById('module');
+var rollD = document.getElementById('rollD');
 var numberTeeths = document.getElementById('numberTeeths');
 var shift = document.getElementById('shift');
 
