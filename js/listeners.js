@@ -1,7 +1,7 @@
-//Задаем слушатели событий
+﻿//Задаем слушатели событий
 
 alfaCorn.addEventListener('blur',function(){checkCorn(alfaCorn,feedbackAlfaCorn,unit = '')},false);
-alfaCorn.addEventListener('submit',function(){checkCorn(alfaCorn,feedbackAlfaCorn,unit = '')},false);
+alfaCorn.addEventListener('keydown',function(){checkCorn(alfaCorn,feedbackAlfaCorn,unit = '')},false);
 
 alfaMin.addEventListener('blur',function(){checkMS(alfaMin,feedbackAlfaMin,unit = '')},false);
 alfaSec.addEventListener('blur',function(){checkMS(alfaSec,feedbackAlfaSec,unit = '')},false);
