@@ -147,9 +147,12 @@ function calculation() {
 
     //Опpеделение толщины вершины зуба
     var sTA = thick(dD, dA, alfaT, alfa, z1, x1);
+    console.log('dD = '+dD.toFixed(2) +' dA = '+dA.toFixed(2) +' alfaT = '+alfaT.toFixed(2) +' alfa = '+alfa.toFixed(2) +' z1 = '+z1.toFixed(2) +' x1 = '+x1.toFixed(2));
 
     //Толщина зуба
     var sP = (Math.PI / 2 + 2 * x1 * Math.tan(alfa)) * m;
+
+
 
     //Угол отклонения осей координат от точки начала
     if (x1 === 0) {
@@ -181,7 +184,7 @@ function calculation() {
     gam = 2 * Math.PI / z1;
 
     //Определение координат 2 зуба
-    x1 = rD * Math.sin(gam);
+    x1x = rD * Math.sin(gam);
     y1 = rD * (1 - Math.cos(gam));
 
     //Переводим радианы расчитанного угла отклонения расположения 2го зуба
@@ -199,7 +202,7 @@ function calculation() {
     } else {
         rZ = 0.4 * m;
     }
-/*
+
     //Определение действительных координат
     if (rA > rF) {
         xMax = rA - rB;
@@ -210,6 +213,9 @@ function calculation() {
 
     }
 
+    console.log("xMax "+ xMax);
+    console.log("xMix "+ xMin);
+
     //Определение интервала
     if (rF > rB) {
         xTMax = xMax / rB;
@@ -219,36 +225,71 @@ function calculation() {
     } else {
         xTMin = 0.064 - 2.554 / z1;
         xTMax = 0.064 + 2.128 / z1;
-    }*/
+    }
+
+    //Расчет для построения эвольвенты
+    //var hRab = hP-rZ;
+    //var dis = hRab/20;
+
+    //Диаметр на котором расчитывается толщина зуба
+    var dTY = dA;
+    s = [];
+
+    for (i=0; dTY >=(dF+2*rZ); i++){
+
+        s[i] = thick(dD, dTY, alfaT, alfa, z1, x1);
+
+        //Толщина зуба на заданном диаметре
+        var sTY = s[i];
+        console.log('dOkr = '+dTY.toFixed(2) +'  s['+i+'] = '+ sTY.toFixed(3));
+        dTY = dTY-0.02;
+    }
+
+
 
     //Расчет размера по роликам (шарикам)
     D = rollD.value/1;
     if (D === 0) {
         D = 1.7 * m;
+        rollD.value = D;
+        errorRollD.textContent = D;
     }
 
     var invAlfaD = (D / (z1 * m * Math.cos(alfa)) + invaluta(alfaT) + ((Math.PI / 2) - 2 * x1 * Math.tan(alfa)) / z1);
     alfaD = invToCorn(invAlfaD);
     var dRol = dD * (Math.cos(alfaT) / Math.cos(alfaD));
     if (((z1 % 2 === 0)&&(beta!==0))||((z1 % 2 === 0)&&(beta===0))) {
-        M = dRol + D;
-        number = 1;
+        var M = dRol + D;
     }else if((beta===0)&&(z1%2!==0)){
         M = dRol * Math.cos((90 * Math.PI / 180) / z1) + D;
-        number = 2;
     }else{
-    //var betaD = Math.atan(Math.cos(alfaT)*Math.tan(beta)/Math.cos(alfaD));
-    if(z1%2===0){
-        gamma = 0;
-    }else{
-        gamma = Math.PI/z1;
-    }
-    //M = 'Передача косозубая с нечетным количеством зубьев или угол &beta; >45&deg;';
-    //M = 0;
-    feedbackRollD.textContent = 'Передача косозубая с нечетным количеством зубьев или угол &beta; >45&deg;';
-    number = 3;
-    }
 
+
+        var betaD = Math.atan(Math.cos(alfaT)*Math.tan(beta)/Math.cos(alfaD));
+
+        var gamma;
+        if(z1%2===0){
+            gamma = 0;
+        }else{
+            gamma = Math.PI/z1;
+        }
+
+        var lam = -0.0001;
+
+        //Нахождение лямбды через цикл
+        while(n!==0){
+
+            lam = lam+0.0001;
+            var raschet = (Math.sin(gamma+lam)*Math.pow(Math.tan(betaD),2)-lam)*10000;
+            var n = Math.round(raschet);
+        }
+
+        var M1 = (dRol/(2*Math.tan(betaD)));
+        var M2 = ((90/z1)/2)+(lam/2);
+        var M3 = 4*Math.pow(Math.tan(betaD),2)*Math.pow(Math.cos(M2),2);
+        M = M1*Math.pow((Math.pow(lam,2)+M3),(1/2))+D;
+       // M = (dRol/(2*Math.tan(betaD)))*Math.sqrt(Math.pow(lam,2)+4*Math.pow(Math.tan(betaD),2)*Math.pow(Math.cos((90/z1)+(lam/2)),2))+D;
+    }
 
 	//Вывод результатов расчета в таблицу
 	feedbackAlfaRad.textContent = alfa.toFixed(5);
@@ -271,14 +312,14 @@ function calculation() {
 	if(x0===0){feedbackX0.textContent ='';}else{feedbackX0.textContent = x0.toFixed(3);}
 	if(y0===0){feedbackY0.textContent ='';}else{feedbackY0.textContent = y0.toFixed(3);}
 	feedbackCorn.textContent = betaRasCorn+'° '+betaRasMin+'\' '+betaRasSec+'\"';
-	if(x1===0){feedbackX1.textContent ='';}else{feedbackX1.textContent = x1.toFixed(3);}
+	if(x1===0){feedbackX1.textContent ='';}else{feedbackX1.textContent = x1x.toFixed(3);}
 	if(y1===0){feedbackY1.textContent ='';}else{feedbackY1.textContent = y1.toFixed(3);}
 	feedbackCorn2.textContent = gamCorn+'° '+gamMin+'\' '+gamSec+'\"';
 	if(rZ===0){feedbackRadCurve.textContent ='';}else{feedbackRadCurve.textContent = rZ.toFixed(3);}
-    if (number!==3){feedbackRollD.textContent = M.toFixed(3);}
+    if(M===0){feedbackRollD.textContent='';}else{feedbackRollD.textContent = M.toFixed(3);}
 	
-	check.textContent = number;
-	check2.textContent = D;
+	//check.textContent = number;
+	check2.textContent = gamma;
 
 
 
