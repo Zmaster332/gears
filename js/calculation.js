@@ -147,7 +147,6 @@ function calculation() {
 
     //Опpеделение толщины вершины зуба
     var sTA = thick(dD, dA, alfaT, alfa, z1, x1);
-    console.log('dD = '+dD.toFixed(2) +' dA = '+dA.toFixed(2) +' alfaT = '+alfaT.toFixed(2) +' alfa = '+alfa.toFixed(2) +' z1 = '+z1.toFixed(2) +' x1 = '+x1.toFixed(2));
 
     //Толщина зуба
     var sP = (Math.PI / 2 + 2 * x1 * Math.tan(alfa)) * m;
@@ -184,7 +183,8 @@ function calculation() {
     gam = 2 * Math.PI / z1;
 
     //Определение координат 2 зуба
-    x1x = rD * Math.sin(gam);
+    var x1x = rD * Math.sin(gam);
+
     y1 = rD * (1 - Math.cos(gam));
 
     //Переводим радианы расчитанного угла отклонения расположения 2го зуба
@@ -223,13 +223,13 @@ function calculation() {
     } else if (z1 <= 39) {
         xTMin = 0;
     } else {
-        xTMin = 0.064 - 2.554 / z1;
-        xTMax = 0.064 + 2.128 / z1;
+        xTMin = (1-Math.cos(alfa))/Math.cos(alfa) - 2/(z1*Math.cos(alfa));
+        xTMax = (1-Math.cos(alfa))/Math.cos(alfa) + 2/(z1*Math.cos(alfa));
     }
 
     //Расчет для построения эвольвенты
-    //var hRab = hP-rZ;
-    //var dis = hRab/20;
+    var hRab = hP-rZ;
+    var dis = hRab/20;
 
     //Диаметр на котором расчитывается толщина зуба
     var dTY = dA;
@@ -242,7 +242,7 @@ function calculation() {
         //Толщина зуба на заданном диаметре
         var sTY = s[i];
         console.log('dOkr = '+dTY.toFixed(2) +'  s['+i+'] = '+ sTY.toFixed(3));
-        dTY = dTY-0.02;
+        dTY = dTY-dis;
     }
 
 
@@ -295,6 +295,19 @@ function calculation() {
 	feedbackAlfaRad.textContent = alfa.toFixed(5);
 	feedbackBetaRad.textContent = beta.toFixed(5);
 	
+	dNov =  103.2462;
+	var rNov = dNov/2;
+	//a1 =  thick(dD, dNov, alfaT, alfa, z1, x1)/2;
+	
+	
+	alfaP = Math.acos(rB/rNov);
+	xRasch = Math.tan(alfaP)-alfaP;
+	yRasch = Math.sin(xRasch)*rNov;
+	//xRasch = dNov*(Math.sin(betaXY-invaluta(alfaP)))/Math.cos(alfaP);
+	//yRasch = dNov*((Math.cos(betaXY-invaluta(alfaP)))-1)/Math.cos(alfaP);;
+	//alfaY = Math.tan((dNov/dB)*Math.tan(betaXY));
+	
+
 	if(p===0){feedbackStep.textContent ='';}else{feedbackStep.textContent = p.toFixed(3);}
 	if(hP===0){feedbackDepth.textContent ='';}else{feedbackDepth.textContent = hP.toFixed(3);}
 	if(dD===0){feedbackDiamDiv.textContent ='';}else{feedbackDiamDiv.textContent = dD.toFixed(3);}
@@ -308,18 +321,19 @@ function calculation() {
 	if(dF===0){feedbackDiamHol.textContent ='';}else{feedbackDiamHol.textContent = dF.toFixed(3);}
 	if(rF===0){feedbackRadHol.textContent ='';}else{feedbackRadHol.textContent = rF.toFixed(3);}
 	if(sTA===0){feedbackThickAddendum.textContent ='';}else{feedbackThickAddendum.textContent = sTA.toFixed(3);}
-	if(sP===0){feedbackThickNormal.textContent ='';}else{feedbackThickNormal.textContent = sP.toFixed(3);}
+	if(sP===0){feedbackThickNormal.textContent ='';}else{feedbackThickNormal.textContent = sP.toFixed(5);}
 	if(x0===0){feedbackX0.textContent ='';}else{feedbackX0.textContent = x0.toFixed(3);}
 	if(y0===0){feedbackY0.textContent ='';}else{feedbackY0.textContent = y0.toFixed(3);}
 	feedbackCorn.textContent = betaRasCorn+'° '+betaRasMin+'\' '+betaRasSec+'\"';
-	if(x1===0){feedbackX1.textContent ='';}else{feedbackX1.textContent = x1x.toFixed(3);}
+	if(x1x===0){feedbackX1.textContent ='';}else{feedbackX1.textContent = x1x.toFixed(3);}
 	if(y1===0){feedbackY1.textContent ='';}else{feedbackY1.textContent = y1.toFixed(3);}
 	feedbackCorn2.textContent = gamCorn+'° '+gamMin+'\' '+gamSec+'\"';
 	if(rZ===0){feedbackRadCurve.textContent ='';}else{feedbackRadCurve.textContent = rZ.toFixed(3);}
     if(M===0){feedbackRollD.textContent='';}else{feedbackRollD.textContent = M.toFixed(3);}
 	
-	//check.textContent = number;
-	check2.textContent = gamma;
+	
+	check.textContent = xRasch.toFixed(7);
+	check2.textContent = yRasch.toFixed(7);
 
 
 
