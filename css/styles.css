@@ -69,7 +69,7 @@ h1{
 
 
 }
-#table4{
+#table4,#table5{
 	height: 50%;
 }
 
@@ -129,7 +129,7 @@ table {
 	border: 1px solid black;
     border-radius: 2px 2px 2px 2px;
 	cursor: pointer;
-	margin-top: 20px;
+	margin-top: 5px;
 	color: #f3dad1;
 	position: relative;
 	}
@@ -152,22 +152,118 @@ table {
 	position: relative;
 	}
 
-/*
-input[type='text'], textarea {
-		text-align: center;
-		font-family: "Times New Roman";
-		font-size: 100%;
-		font-weight: normal;
-		color: black;
+#buttonXY, #buttonExit {
+	top: 4px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 18px;
+	font-family: "Times New Roman";
+	background-color: #cb6868;
+	left: 33%;
+	width: 33%;
+	height: auto;
+	border: 1px solid black;
+    border-radius: 2px 2px 2px 2px;
+	margin-top: 20px;
+	color: #f3dad1;
+	cursor: pointer;
+	position: relative;
+	}
+
+#buttonXY:focus{
+	top: 4px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 18px;
+	font-family: "Times New Roman";
+	background-color: #cb6868;
+	left: 33%;
+	width: 33%;
+	border: 1px solid black;
+    border-radius: 2px 2px 2px 2px;
+	cursor: pointer;
+	margin-top: 20px;
+	color: #f3dad1;
+	position: relative;
+	}
+
+#buttonXY:hover{
+	top: 4px;
+	background-color: #d75359;
+	color: #f3dad1;
+	cursor: pointer;
+	position: relative;
+	}
+
+#buttonXY:active{
+	
+	top: 4px;
+	background-color: #d75359;
+	border: 2px solid blue;
+	color: #f3dad1;
+	cursor: pointer;
+	position: relative;
+	}
+
+#buttonExit:focus{
+	top: 4px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 18px;
+	font-family: "Times New Roman";
+	background-color: #cb6868;
+	left: 33%;
+	width: 33%;
+	border: 1px solid black;
+    border-radius: 2px 2px 2px 2px;
+	cursor: pointer;
+	margin-top: 20px;
+	color: #f3dad1;
+	position: relative;
+	}
+
+#buttonExit:hover{
+	top: 4px;
+	background-color: #d75359;
+	color: #f3dad1;
+	cursor: pointer;
+	position: relative;
+	}
+
+#buttonExit:active{
+	
+	top: 4px;
+	background-color: #d75359;
+	border: 2px solid blue;
+	color: #f3dad1;
+	cursor: pointer;
+	position: relative;
+	}
+
+#errorJS{
+	display: flex;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	background-repeat: no-repeat;
+	background-color: #efefef;
+	overflow: auto;
+	position: absolute;
 }
 
-
-
-
-input[type='text']:focus, input[type='password']:focus, textarea:focus {
-  border: 1px solid #fff;
-  background-color: #fff;
-  outline: none;}
-*/
-
+#pointsEvolvent{
+	display: none;
+	top: 20px;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-color: #efefef;
+	overflow: auto;
+	position: absolute;
+}
 

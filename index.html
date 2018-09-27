@@ -15,7 +15,6 @@
 			<br/>ГОСТ 13755-2015</div>
 			<div class="images" id="imageDrawingProfile"></div>
 		</div>
-
 		<div class="pagePart" id="partCenter">
 			<div class="nameImage" id="firstPartCalc">1. Выберите свою передачу для расчета</div>
 			<input type="radio" name="gears" value="cylindrical" checked="checked" id="cylindricalGear"/>
@@ -26,96 +25,116 @@
 			<label for="bevelRoundGear">Расчет геометрии зубчатых конических передач с круговыми зубьями</label><br/>
 			<input type="radio" name="gears" value="worm" id="wormGear"/>
 			<label for="wormGear">Расчет геометрии червячных цилиндрических передач</label>
-					
-			<div class="nameImage" id="secondPartCalc">2. Введите исходные данные</div>
-			<table id="vvedi">
-				<thead>
+
+
+			<!--<div class="nameImage" id="firstPartCalc">1. Выберите свою передачу для расчета</div>
+			<input type="radio" name="gears" value="cylindrical" checked="checked" id="cylindricalGear"/>
+			<label for="cylindricalGear">Расчет геометрии цилиндрических зубчатых передач внешнего зацепления</label><br/>
+			<input type="radio" name="gears" value="bevelStraight" id="bevelStraightGear"/>
+			<label for="bevelStraightGear">Расчет геометрии зубчатых конических передач с прямыми зубьями</label><br/>
+			<input type="radio" name="gears" value="bevelRound" id="bevelRoundGear"/>
+			<label for="bevelRoundGear">Расчет геометрии зубчатых конических передач с круговыми зубьями</label><br/>
+			<input type="radio" name="gears" value="worm" id="wormGear"/>
+			<label for="wormGear">Расчет геометрии червячных цилиндрических передач</label>-->
+		<!--<div class="nameImage" id="firstPartCalc">1. Выбор параметров первоначальных</div>
+        <div>Передача Прямозубая?</div></br>
+        <div id="buttonY" >Да</div><div id="buttonN" >Нет</div>-->
+
+        <div class="nameImage" id="secondPartCalc">2. Введите исходные данные</div>
+        <table id="vvedi">
+            <thead>
+				<tr>
 					<th>Параметр</th>
 					<th>Вводимые данные</th>
 					<th>Доп. информация</th>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Угол профиля исходного контура (&alpha;)</td>
-						<td>
-							<input type="text" id="alfaCorn" value="20"/><label for="alfaCorn"> &deg;</label><br/>
-							<input type="text" id="alfaMin" value="0"/><label for="alfaMin"> '</label><br/>
-							<input type="text" id="alfaSec" value="0"/><label for="alfaSec"> "</label>
-						</td>
-						<td>					
-							<div id="feedbackAlfaCorn"></div>
-							<div id="feedbackAlfaMin"></div>
-							<div id="feedbackAlfaSec"></div>
-							<div id="feedbackAlfaRad"></div>
-						</td>						
-					</tr>
-					<tr>
-						<td>Угол наклона зубьев (&beta;)</td>
-						<td><input type="text" id="betaCorn" value="0"/><label for="betaCorn"> &deg;</label><br/>
-							<input type="text" id="betaMin" value="0"/><label for="betaMin"> '</label><br/>
-							<input type="text" id="betaSec" value="0"/><label for="betaSec"> "</label>
-						</td>	
-						<td><div id="feedbackBetaCorn">Для прямых зубьев 0&deg;0'0"</div>
-							<div id="feedbackBetaMin"></div>
-							<div id="feedbackBetaSec"></div>
-							<div id="feedbackBetaRad"></div>
-						</td>
-						
-					</tr>
-					<tr>
-						<td><label for="module">Модуль (<em>m</em>)</label></td>
-						<td><input type="text" id="module" value="0.3"/></td>
-						<td><div id="errorModule"></div></td>
-					</tr>
-					<tr>
-						<td><label for="numberTeeths">Число зубьев расчитываемого колеса (<em>z</em>)</label></td>
-						<td><input type="text" id="numberTeeths" value="345"/></td>
-						<td><div id="errorNumberTeeths"></div></td>
-					</tr>
-					<tr>
-						<td><label for="rollD">Введите размер роликов (D)</label></td>
-						<td><input type="text" id="rollD" value="0"/></td>
-						<td><div id="errorRollD">Если не известно - 0</div></td>
-					</tr>
-					<tr>
-						<td><label for="numberTeeths2">Число зубьев ответного колеса(<em>z<sub>2</sub></em>)</label></td>
-						<td><input type="text" id="numberTeeths2" value="55"/></td>
-						<td><div id="errorNumberTeeths2"></div></td>
-					</tr>
-					<tr>
-						<td><label for="shift">Коэффициент смещения (<em>x</em>)</label></td>
-						<td><input type="text" id="shift" value="0"/></td>
-						<td><div id="feedbackShift">0, если не задано</div></td>
-					</tr>
-					<tr>
-						<td><label for="shift2">Коэффициент смещения ответного колеса(<em>x<sub>2</sub></em>)</label></td>
-						<td><input type="text" id="shift2" value="0"/></td>
-						<td><div id="feedbackShift2"></div></td>
-					</tr>					
-				</tbody>
-			</table>
-			<div id="buttonCalc" >рассчитать</div></div>
-			<!--<div class="nameImage" id="thirdPartCalc">3. Если исходный контур не стандартный. введите дополнительные параметры</div>
-			<table>
-				<thead>
-					<th>Параметр</th>
-					<th>Вводимые данные</th>
-					<th>Доп. информация</th>
-				</thead>
-				<tbody>
+				</tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Угол профиля исходного контура (&alpha;)</td>
+                    <td>
+                        <input type="text" id="alfaCorn" value="20"/><label for="alfaCorn"> &deg;</label><br/>
+                        <input type="text" id="alfaMin" value="0"/><label for="alfaMin"> '</label><br/>
+                        <input type="text" id="alfaSec" value="0"/><label for="alfaSec"> "</label>
+                    </td>
+                    <td>
+                        <div id="feedbackAlfaCorn"></div>
+                        <div id="feedbackAlfaMin"></div>
+                        <div id="feedbackAlfaSec"></div>
+                        <div id="feedbackAlfaRad"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Угол наклона зубьев (&beta;)</td>
+                    <td><input type="text" id="betaCorn" value="0"/><label for="betaCorn"> &deg;</label><br/>
+                        <input type="text" id="betaMin" value="0"/><label for="betaMin"> '</label><br/>
+                        <input type="text" id="betaSec" value="0"/><label for="betaSec"> "</label>
+                    </td>
+                    <td><div id="feedbackBetaCorn">Для прямых зубьев 0&deg;0'0"</div>
+                        <div id="feedbackBetaMin"></div>
+                        <div id="feedbackBetaSec"></div>
+                        <div id="feedbackBetaRad"></div>
+                    </td>
 
-				</tbody>
-			</table>
+                </tr>
+                <tr>
+                    <td><label for="module">Модуль (<em>m</em>)</label></td>
+                    <td><input type="text" id="module" value="0.3"/></td>
+                    <td><div id="errorModule"></div></td>
+                </tr>
+                <tr>
+                    <td><label for="numberTeeths">Число зубьев расчитываемого колеса (<em>z</em>)</label></td>
+                    <td><input type="text" id="numberTeeths" value="345"/></td>
+                    <td><div id="errorNumberTeeths"></div></td>
+                </tr>
+                <tr>
+                    <td><label for="rollD">Введите размер роликов (D)</label></td>
+                    <td><input type="text" id="rollD" value="0"/></td>
+                    <td><div id="errorRollD">Если не известно - 0</div></td>
+                </tr>
+                <tr>
+                    <td><label for="numberTeeths2">Число зубьев ответного колеса(<em>z<sub>2</sub></em>)</label></td>
+                    <td><input type="text" id="numberTeeths2" value="55"/></td>
+                    <td><div id="errorNumberTeeths2"></div></td>
+                </tr>
+                <tr>
+                    <td><label for="shift">Коэффициент смещения (<em>x</em>)</label></td>
+                    <td><input type="text" id="shift" value="0"/></td>
+                    <td><div id="feedbackShift">0, если не задано</div></td>
+                </tr>
+                <tr>
+                    <td><label for="shift2">Коэффициент смещения ответного колеса(<em>x<sub>2</sub></em>)</label></td>
+                    <td><input type="text" id="shift2" value="0"/></td>
+                    <td><div id="feedbackShift2"></div></td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="buttonCalc" >рассчитать</div>
+		<div id="buttonXY" >Показать координаты профиля эвольвенты</div>
+	</div>
+        <!--<div class="nameImage" id="thirdPartCalc">3. Если исходный контур не стандартный. введите дополнительные параметры</div>
+        <table>
+            <thead>
+                <th>Параметр</th>
+                <th>Вводимые данные</th>
+                <th>Доп. информация</th>
+            </thead>
+            <tbody>
 
-		</div>-->
+            </tbody>
+        </table>
+
+    </div>-->
 
 		<div class="pagePart" id="partRight">
 			<div class="nameImage" id="fourthPartCalc">4. Результаты расчета</div>
 			<table id="table4">
 				<thead>
-					<th>Параметр</th>
-					<th>Расчетные данные</th>
-					<th>Доп. информация</th>
+					<tr>
+						<th>Параметр</th>
+						<th>Расчетные данные</th>
+						<th>Доп. информация</th>
+					</tr>
 				</thead>
 				<tbody>
 					<tr>
@@ -208,6 +227,7 @@
 						<td><div id="feedbackX0"></div></td>
 						<td></td>
 					</tr>
+					<tr>
 						<td>Начало СК по оси Y (<em>Y<sub>o</sub></em>)</td>
 						<td><div id="feedbackY0"></div></td>
 						<td></td>
@@ -222,7 +242,8 @@
 						<td><div id="feedbackX1"></div></td>
 						<td></td>
 					</tr>
-						<<td>Координаты 2го зуба по оси Y (<em>Y<sub>oo</sub></em>)</td>
+					<tr>
+						<td>Координаты 2го зуба по оси Y (<em>Y<sub>oo</sub></em>)</td>
 						<td><div id="feedbackY1"></div></td>
 						<td></td>
 					</tr>
@@ -247,11 +268,35 @@
 					</tr>
 				</tbody>
 			</table>
-		</div>
+		</div>		
+		
+		<div class="nameImage" id="pointsEvolvent">Координаты точек. для построения эвольвентного профиля	
+        <table id="table5">
+            <thead>
+				<tr>
+					<th>X</th>
+					<th>Y</th>
+				</tr>
+            </thead>
+            <tbody id="x1"></tbody>
+        </table>
+		<div id="buttonExit" >Возврат к расчету</div>
+		</div>	
+		
+		
+		
+		
+		
+		<div id="errorJS"><img src="images\/error_load_javascript.png" align="center"></div>
+		
 		<script src="js/work-cells.js"></script>
-		<script src="js/verification.js"></script>
+		<script src="js/verification.js"></script>		
+		<script src="js/additional-calc.js"></script>
 		<script src="js/calculation.js"></script>
+		<script src="js/points-evolvent.js"></script>
 		<script src="js/listeners.js"></script>
+		
+
 
 					
 

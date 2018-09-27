@@ -210,11 +210,7 @@ function calculation() {
     } else {
         xMax = rF - rB;
         xMin = rA - rB;
-
     }
-
-    console.log("xMax "+ xMax);
-    console.log("xMix "+ xMin);
 
     //Определение интервала
     if (rF > rB) {
@@ -223,7 +219,7 @@ function calculation() {
     } else if (z1 <= 39) {
         xTMin = 0;
     } else {
-        xTMin = (1-Math.cos(alfa))/Math.cos(alfa) - 2/(z1*Math.cos(alfa));
+        xTMin = (1-Math.cos(alfa))/Math.cos(alfa) - 2.4/(z1*Math.cos(alfa));
         xTMax = (1-Math.cos(alfa))/Math.cos(alfa) + 2/(z1*Math.cos(alfa));
     }
 
@@ -297,15 +293,17 @@ function calculation() {
 	
 	dNov =  103.2462;
 	var rNov = dNov/2;
-	//a1 =  thick(dD, dNov, alfaT, alfa, z1, x1)/2;
+	xRasch = thick(dD, dNov, alfaT, alfa, z1, x1)/2;
 	
 	
 	alfaP = Math.acos(rB/rNov);
-	xRasch = Math.tan(alfaP)-alfaP;
-	yRasch = Math.sin(xRasch)*rNov;
-	//xRasch = dNov*(Math.sin(betaXY-invaluta(alfaP)))/Math.cos(alfaP);
-	//yRasch = dNov*((Math.cos(betaXY-invaluta(alfaP)))-1)/Math.cos(alfaP);;
-	//alfaY = Math.tan((dNov/dB)*Math.tan(betaXY));
+	//yRasch = Math.sin(invaluta(alfaP))*rNov;
+	//xRasch = (yRasch/Math.tan(invaluta(alfaP)))-rB;
+
+    //yRasch = Math.sin(betaXY-(Math.asin(xRasch/rNov)))*rNov;
+	//yRasch = 
+    //xRasch = yRasch/(Math.tan(betaXY-(Math.asin(xRasch/rNov))))-rB;
+
 	
 
 	if(p===0){feedbackStep.textContent ='';}else{feedbackStep.textContent = p.toFixed(3);}
@@ -332,56 +330,13 @@ function calculation() {
     if(M===0){feedbackRollD.textContent='';}else{feedbackRollD.textContent = M.toFixed(3);}
 	
 	
-	check.textContent = xRasch.toFixed(7);
-	check2.textContent = yRasch.toFixed(7);
+	check.textContent = xTMin.toFixed(7);
+	check2.textContent = xTMax.toFixed(7);
 
 
 
 
 }
-
-//Перевод инвалюты в число
-
-//Метод Ласкина (уголы от 0 до 64,87°)
-/*
-function invToCorn(inv){
-
-	var e = 0.00001;
-	var inv0 = Math.pow((3*inv),(1/3));
-	
-	do{	
-		c0 = Math.tan(inv0)-inv0;
-		alfaA1 = inv-c0;
-		alfaA2 = alfaA1/Math.pow(inv0,2);
-		alfaA2 = alfaA2*0.63;
-		inv0 = inv0+alfaA2;	
-	}
-	while(Math.abs(alfaA2)>e);
-	return inv0;
-
-}*/
-//Метод Ченга (уголы от 0 до 74,87°)
-function invaluta(corn){
-	return (Math.tan(corn)-corn);
-}
-
-function invToCorn(inv){
-    return Math.pow((3*inv),(1/3)) - (2 * inv) / 5 + (9 / 175) * Math.pow(3, (2 / 3)) * Math.pow(inv, (7 / 3)) - (144 / 67375) * Math.pow(inv, (11 / 3)) - (49711 / 153278125) * Math.pow(3, (1 / 3)) * Math.pow(inv, (13 / 3));
-}
-
-
-//Расчет толщины зуба в заданной точке (для построения эвольвенты),
-//по делительному диаметру и углу профиля
-
-function thick(dD,d,aT,a,z,x) {
-    var aA = Math.acos(dD * Math.cos(aT) / d);
-    return d * (((Math.PI / 2 + (2 * x * Math.tan(a))) / z + (Math.tan(aT) - aT) - (Math.tan(aA) - aA)));
-}
-
-
-
-
-
 
 
 /*

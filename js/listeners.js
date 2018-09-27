@@ -21,3 +21,9 @@ shift2.addEventListener('blur',function(){checkShift(shift2,feedbackShift2)}, fa
 
 //Запуск рассчета
 buttonCalc.addEventListener('click',calculation,false);
+
+//Вывод таблицы с точками эвольвенты
+tableXY.addEventListener('click',buttonXY,false);
+
+//Выход из таблицы с точками эвольвенты
+exit.addEventListener('click',exitXY,false);
