@@ -55,6 +55,8 @@ function calculation() {
     var rA;								//Радиус вершин зубьев (ra)
     var dW;								//Начальный диаметр (dw)
     var rW;								//Начальный радиус (rw)
+    var dF;								//Диаметр впадин (df)
+    var rF;								//Радиус впадин(rf)
     var rZ;								//Радиус закругления (pfp)
     var coefHeightHead = 1.0;			//Коэффициент высоты головки зуба(ha*)
     var c = 0.25;						//Коэффициент радиального зазора
@@ -203,27 +205,7 @@ function calculation() {
         rZ = 0.4 * m;
     }
 
-    //Определение действительных координат
-    if (rA > rF) {
-        xMax = rA - rB;
-        xMin = rF - rB;
-    } else {
-        xMax = rF - rB;
-        xMin = rA - rB;
-    }
-
-    //Определение интервала
-    if (rF > rB) {
-        xTMax = xMax / rB;
-        xTMin = xMin / rB;
-    } else if (z1 <= 39) {
-        xTMin = 0;
-    } else {
-        xTMin = (1-Math.cos(alfa))/Math.cos(alfa) - 2.4/(z1*Math.cos(alfa));
-        xTMax = (1-Math.cos(alfa))/Math.cos(alfa) + 2/(z1*Math.cos(alfa));
-    }
-
-    //Расчет для построения эвольвенты
+    /*//Расчет для построения эвольвенты
     var hRab = hP-rZ;
     var dis = hRab/20;
 
@@ -241,7 +223,7 @@ function calculation() {
         dTY = dTY-dis;
     }
 
-
+*/
 
     //Расчет размера по роликам (шарикам)
     D = rollD.value/1;
@@ -293,7 +275,7 @@ function calculation() {
 	
 	dNov =  103.2462;
 	var rNov = dNov/2;
-	xRasch = thick(dD, dNov, alfaT, alfa, z1, x1)/2;
+	//xRasch = thick(dD, dNov, alfaT, alfa, z1, x1)/2;
 	
 	
 	alfaP = Math.acos(rB/rNov);
@@ -301,10 +283,10 @@ function calculation() {
 	//xRasch = (yRasch/Math.tan(invaluta(alfaP)))-rB;
 
     //yRasch = Math.sin(betaXY-(Math.asin(xRasch/rNov)))*rNov;
-	//yRasch = 
+	//yRasch =
     //xRasch = yRasch/(Math.tan(betaXY-(Math.asin(xRasch/rNov))))-rB;
 
-	
+
 
 	if(p===0){feedbackStep.textContent ='';}else{feedbackStep.textContent = p.toFixed(3);}
 	if(hP===0){feedbackDepth.textContent ='';}else{feedbackDepth.textContent = hP.toFixed(3);}
@@ -329,9 +311,9 @@ function calculation() {
 	if(rZ===0){feedbackRadCurve.textContent ='';}else{feedbackRadCurve.textContent = rZ.toFixed(3);}
     if(M===0){feedbackRollD.textContent='';}else{feedbackRollD.textContent = M.toFixed(3);}
 	
-	
-	check.textContent = xTMin.toFixed(7);
-	check2.textContent = xTMax.toFixed(7);
+
+	//check.textContent = xTMin.toFixed(7);
+	//check2.textContent = xTMax.toFixed(7);
 
 
 
