@@ -15,19 +15,19 @@ function calculation() {
     checkShift(shift, feedbackShift);
     checkShift(shift2, feedbackShift2);
 
-    var aCorn = alfaCorn.value / 1;       //Градусы угла "альфа"
-    var aMin = alfaMin.value / 1;         //Минуты угла "альфа"
-    var aSec = alfaSec.value / 1;			//Секунды угла "альфа"
-    var bCorn = betaCorn.value / 1;       //Градусы угла "бета"
-    var bMin = betaMin.value / 1;         //Минуты угла "бета"
-    var bSec = betaSec.value / 1;			//Секунды угла "бета"
+    var aCorn = parseFloat(alfaCorn.value);       //Градусы угла "альфа"
+    var aMin = parseFloat(alfaMin.value);         //Минуты угла "альфа"
+    var aSec = parseFloat(alfaSec.value);			//Секунды угла "альфа"
+    var bCorn = parseFloat(betaCorn.value);       //Градусы угла "бета"
+    var bMin = parseFloat(betaMin.value);         //Минуты угла "бета"
+    var bSec = parseFloat(betaSec.value);			//Секунды угла "бета"
 
-    var m = module.value / 1;				//Модуль
-    var z1 = numberTeeths.value / 1;		//Число зубьев шестерни 1
-    var z2 = numberTeeths2.value / 1;		//Число зубьев шестерни 2
+    var m = parseFloat(module.value);				//Модуль
+    var z1 = parseFloat(numberTeeths.value);		//Число зубьев шестерни 1
+    var z2 = parseFloat(numberTeeths2.value);		//Число зубьев шестерни 2
 
-    var x1 = shift.value / 1;				//Смещение 1й шестерни
-    var x2 = shift2.value / 1;				//Смещение 2й шестерни
+    var x1 = parseFloat(shift.value);				//Смещение 1й шестерни
+    var x2 = parseFloat(shift2.value);				//Смещение 2й шестерни
     var xSumm = x1 + x2;					//Суммарное смещение
 
     var alfa;							//Угол "альфа" в радианах
@@ -187,7 +187,7 @@ function calculation() {
     //Определение координат 2 зуба
     var x1x = rD * Math.sin(gam);
 
-    y1 = rD * (1 - Math.cos(gam));
+    var y1 = rD * (1 - Math.cos(gam));
 
     //Переводим радианы расчитанного угла отклонения расположения 2го зуба
     gamXY = gam * 180 / Math.PI;
@@ -205,45 +205,26 @@ function calculation() {
         rZ = 0.4 * m;
     }
 
-    /*//Расчет для построения эвольвенты
-    var hRab = hP-rZ;
-    var dis = hRab/20;
-
-    //Диаметр на котором расчитывается толщина зуба
-    var dTY = dA;
-    s = [];
-
-    for (i=0; dTY >=(dF+2*rZ); i++){
-
-        s[i] = thick(dD, dTY, alfaT, alfa, z1, x1);
-
-        //Толщина зуба на заданном диаметре
-        var sTY = s[i];
-        console.log('dOkr = '+dTY.toFixed(2) +'  s['+i+'] = '+ sTY.toFixed(3));
-        dTY = dTY-dis;
-    }
-
-*/
-
     //Расчет размера по роликам (шарикам)
-    D = rollD.value/1;
+    D = parseFloat(rollD.value);
     if (D === 0) {
         D = 1.7 * m;
         rollD.value = D;
         errorRollD.textContent = D;
     }
+	
+	var number;
 
-    var invAlfaD = (D / (z1 * m * Math.cos(alfa)) + invaluta(alfaT) + ((Math.PI / 2) - 2 * x1 * Math.tan(alfa)) / z1);
-    alfaD = invToCorn(invAlfaD);
-    var dRol = dD * (Math.cos(alfaT) / Math.cos(alfaD));
-    if (((z1 % 2 === 0)&&(beta!==0))||((z1 % 2 === 0)&&(beta===0))) {
-        var M = dRol + D;
+    var invAlfaD = D/(z1*m*Math.cos(alfa))+invaluta(alfaT)-(((Math.PI/2.0)-(2.0*x1*Math.tan(alfa)))/z1);
+    var alfaD = invToCorn(invAlfaD);
+    var dRol = dD*(Math.cos(alfaT)/Math.cos(alfaD));
+    if (((z1%2===0)&&(beta!==0))||((z1%2===0)&&(beta===0))) {
+        var M = dRol+D;
+		number=1;
     }else if((beta===0)&&(z1%2!==0)){
-        M = dRol * Math.cos((90 * Math.PI / 180) / z1) + D;
+        M = dRol*Math.cos((90.0*Math.PI/180.0)/z1)+D;
     }else{
-
-
-        var betaD = Math.atan(Math.cos(alfaT)*Math.tan(beta)/Math.cos(alfaD));
+        var betaD = Math.atan((Math.cos(alfaT)*Math.tan(beta))/Math.cos(alfaD));
 
         var gamma;
         if(z1%2===0){
@@ -263,9 +244,10 @@ function calculation() {
         }
 
         var M1 = (dRol/(2*Math.tan(betaD)));
-        var M2 = ((90/z1)/2)+(lam/2);
+        var M2 = ((90*Math.PI/180.0)/z1)+(lam/2);
         var M3 = 4*Math.pow(Math.tan(betaD),2)*Math.pow(Math.cos(M2),2);
         M = M1*Math.pow((Math.pow(lam,2)+M3),(1/2))+D;
+		number=3;
        // M = (dRol/(2*Math.tan(betaD)))*Math.sqrt(Math.pow(lam,2)+4*Math.pow(Math.tan(betaD),2)*Math.pow(Math.cos((90/z1)+(lam/2)),2))+D;
     }
 
@@ -273,21 +255,6 @@ function calculation() {
 	feedbackAlfaRad.textContent = alfa.toFixed(5);
 	feedbackBetaRad.textContent = beta.toFixed(5);
 	
-	dNov =  103.2462;
-	var rNov = dNov/2;
-	//xRasch = thick(dD, dNov, alfaT, alfa, z1, x1)/2;
-	
-	
-	alfaP = Math.acos(rB/rNov);
-	//yRasch = Math.sin(invaluta(alfaP))*rNov;
-	//xRasch = (yRasch/Math.tan(invaluta(alfaP)))-rB;
-
-    //yRasch = Math.sin(betaXY-(Math.asin(xRasch/rNov)))*rNov;
-	//yRasch =
-    //xRasch = yRasch/(Math.tan(betaXY-(Math.asin(xRasch/rNov))))-rB;
-
-
-
 	if(p===0){feedbackStep.textContent ='';}else{feedbackStep.textContent = p.toFixed(3);}
 	if(hP===0){feedbackDepth.textContent ='';}else{feedbackDepth.textContent = hP.toFixed(3);}
 	if(dD===0){feedbackDiamDiv.textContent ='';}else{feedbackDiamDiv.textContent = dD.toFixed(3);}
@@ -301,7 +268,7 @@ function calculation() {
 	if(dF===0){feedbackDiamHol.textContent ='';}else{feedbackDiamHol.textContent = dF.toFixed(3);}
 	if(rF===0){feedbackRadHol.textContent ='';}else{feedbackRadHol.textContent = rF.toFixed(3);}
 	if(sTA===0){feedbackThickAddendum.textContent ='';}else{feedbackThickAddendum.textContent = sTA.toFixed(3);}
-	if(sP===0){feedbackThickNormal.textContent ='';}else{feedbackThickNormal.textContent = sP.toFixed(5);}
+	if(sP===0){feedbackThickNormal.textContent ='';}else{feedbackThickNormal.textContent = sP.toFixed(3);}
 	if(x0===0){feedbackX0.textContent ='';}else{feedbackX0.textContent = x0.toFixed(3);}
 	if(y0===0){feedbackY0.textContent ='';}else{feedbackY0.textContent = y0.toFixed(3);}
 	feedbackCorn.textContent = betaRasCorn+'° '+betaRasMin+'\' '+betaRasSec+'\"';
@@ -312,137 +279,10 @@ function calculation() {
     if(M===0){feedbackRollD.textContent='';}else{feedbackRollD.textContent = M.toFixed(3);}
 	
 
-	//check.textContent = xTMin.toFixed(7);
-	//check2.textContent = xTMax.toFixed(7);
+	check.textContent = alfaD;
+	check2.textContent = dRol.toFixed(7);
 
 
 
 
 }
-
-
-/*
-function calculation() {	
-	
-	var alfaR;				//Угол профиля угла а(альфа) в радианах
-	var beta;				//Угол наклона начала эвольвенты (наклона зуба b(бета))
-	var alfaCorn;			//Градусов в угде a(альфа)
-	var alfaMin;			//Минут в угле а(альфа)
-	var alfaSec;			//Секунд в угле а(альфа)
-	var inva;				//Инвалюта угла а(альфа)
-	var divDiam;			//Делительный диаметp (d)
-	var m;					//Модуль 
-	var z;					//Число зубьев
-	var radiusBase;			//Радиус основной
-	var radiusDiv;			//Делительный радиус
-	var x;					//Коэффициент смещения
-	var da;					//Диаметр выступов
-	var ra;					//Радиус выступов
-	var df;					//Диаметр впадин
-	var rf;					//Радиус впадин
-	var hnom;				//Высота зуба заданная пользователем
-	var h;					//Высота зуба
-	var cosa01;				//Косинус угла профиля
-	var tana01;				//Тангенс угла профиля
-	var alfa01;				//Угол профиля
-	var inva01;				//Инвалюта угла профиля
-	var se1;				//Толщина зуба по окpужности выступов
-	var sd1;				//Толщина зуба по делительной окpужности
-	var x0;					//Начало СК по Х
-	var y0;					//Начало СК по Y
-	var gam;				//Угловой шаг
-	var x1;					//Координата 2го зуба по Х
-	var y1;					//Координата 2го зуба по Y
-	var rz;					//Радиус зацепления
-	var xmax;				//Действительные координаты
-	var xmin;				//Действительные координаты
-	var xtmax;				//Действительный интервал
-	var xtmin;				//Действительный интервал
-
-	
-	//Расчет высоты зуба стандартного контура
-	if (hnom<=0) {
-		h = 2*m;
-	} else{
-		h = hnom;
-	}
-	
-	
-	//Градусы а(альфа) в радианы	
-	alfaR = (alfaCorn + alfaMin/60 + alfaSec/3600)*(Math.PI/180);
-	
-	//Вычисление инвалюты угла а(альфа)
-	
-	inva = Math.sin(alfaR)/Math.cos(alfaR) - alfaR;
-	
-	//Опpеделение делительного диаметpа
-	divDiam = m*z;
-	
-	//Определение радиусов окружности
-	radiusBase = (divDiam*Math.cos(alfaR))/2;
-	
-	//Делительный радиус
-	radiusDiv = divDiam/2;
-	
-	//Определение диаметра и радиуса выступов
-	da = divDiam + 2*m;
-	ra = da/2;
-	
-	//Определение угла наклона начала эвольвенты в зависимости от коэфф. смещения	
-    if (x=0) {		
-        df = da - 2*h;
-		rf = df/2;
-        beta = Math.PI/(2*z) + inva;
-	} else {
-		beta = Math.PI/(2*z) + inva + 2*(Math.sin(alfaR)/Math.cos(alfaR))*x/z;
-	}
-	
-	//Опpеделение толщины зуба по окpужности выступов
-	cosa01 = (divDiam*Math.cos(alfaR))/da;
-	tana01 = (Math.sqrt(1-Math.sqr(cosa01)))/cosa01;
-	alfa01 = Math.atan(tana01);
-	inva01 = tana01 - alfa01;
-	se1 = da*(Math.PI/(2*z) + 2*x*(Math.sin(alfaR)/Math.cos(alfaR))/z + inva - inva01);
-	
-	//Определение толщины зуба по хорде делительной окpужности
-	sd1 = m*z*Math.sin(Math.PI/(2*z)+2*x*(Math.sin(alfaR)/Math.cos(alfaR))/z);
-	while (beta - Math.PI>0){beta = beta - Math.PI;}
-	
-	//Определение начала системы координат
-	x0 = radiusBase*Math.sin(beta);
-	y0 = radiusDiv-radiusBase*Math.cos(beta);
-	
-	//Определение углового шага (в рад.)
-	gam =2*Math.PI/z;
-	
-	//Определение координат 2го зуба
-	x1 = radiusDiv*Math.sin(gam);
-	y1 = radiusDiv*(1-Math.cos(gam));
-	
-	//Определение радиуса закругления
-	if (m<=0.5) {rz = 0.33*m;}
-	else {rz = 0.4*m;}
-	
-	//Определение действительных координат
-	if (ra>rf) {
-		xmax = ra - radiusBase;
-		xmin = rf - radiusBase;
-	} else {
-		xmin = ra-radiusBase;
-		xmax = rf-radiusBase;
-	}
-	//Определение интервала
-	if (rf>radiusBase){
-		xtmax = xmax/radiusBase;
-		xtmin = xmin/radiusBase;
-	} else if (z<=39) {
-		xtmin = 0;
-		}
-	else {
-		xtmin:=0.064-2.554/z;
-		xtmax:=0.064+2.128/z;
-	}
-
-}
-
-*/

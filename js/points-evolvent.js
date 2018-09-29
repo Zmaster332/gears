@@ -1,47 +1,46 @@
-//–‡Ò˜ÂÚ ÚÓ˜ÂÍ ‰Îˇ ÔÓÒÚÓÂÌËˇ ˝‚ÓÎ¸‚ÂÌÚÌÓ„Ó ÔÓÙËÎˇ
+Ôªø//–†–∞—Å—á–µ—Ç —Ç–æ—á–µ–∫ –¥–ª—è –ø–æ—Å—Ç—Ä–æ–µ–Ω–∏—è —ç–≤–æ–ª—å–≤–µ–Ω—Ç–Ω–æ–≥–æ –ø—Ä–æ—Ñ–∏–ª—è
 function buttonXY(){
 
 	var pointsEvolvent = document.getElementById('pointsEvolvent');
 	pointsEvolvent.style.display = 'block';
 
-    var aCorn = alfaCorn.value / 1;			//√‡‰ÛÒ˚ Û„Î‡ "‡Î¸Ù‡"
-    var aMin = alfaMin.value / 1;			//ÃËÌÛÚ˚ Û„Î‡ "‡Î¸Ù‡"
-    var aSec = alfaSec.value / 1;			//—ÂÍÛÌ‰˚ Û„Î‡ "‡Î¸Ù‡"
-    var bCorn = betaCorn.value / 1;			//√‡‰ÛÒ˚ Û„Î‡ "·ÂÚ‡"
-    var bMin = betaMin.value / 1;			//ÃËÌÛÚ˚ Û„Î‡ "·ÂÚ‡"
-    var bSec = betaSec.value / 1;			//—ÂÍÛÌ‰˚ Û„Î‡ "·ÂÚ‡"
-    var z1 = numberTeeths.value / 1;		//◊ËÒÎÓ ÁÛ·¸Â‚ ¯ÂÒÚÂÌË 1
-    var x1 = shift.value / 1;				//—ÏÂ˘ÂÌËÂ 1È ¯ÂÒÚÂÌË
-    var x2 = shift2.value / 1;				//—ÏÂ˘ÂÌËÂ 2È ¯ÂÒÚÂÌË
-    var xSumm = x1 + x2;					//—ÛÏÏ‡ÌÓÂ ÒÏÂ˘ÂÌËÂ
-    var alfa;								//”„ÓÎ "‡Î¸Ù‡" ‚ ‡‰Ë‡Ì‡ı
-    var beta;								//”„ÓÎ "·ÂÚ‡" ‚ ‡‰Ë‡Ì‡ı
-	var xMin;								//ÃËÌËÏ‡Î¸ÌÓÂ ÁÌ‡˜ÂÌËÂ ı
-	var xMax;								//Ã‡ÍÒËÏ‡Î¸ÌÓÂ ÁÌ‡˜ÂÌËÂ ı
-    var rA = parseFloat(feedbackRadTops.textContent);	//–‡‰ËÛÒ ‚Â¯ËÌ ÁÛ·¸Â‚ (ra)
-    var rF = parseFloat(feedbackRadHol.textContent);	//–‡‰ËÛÒ ‚Ô‡‰ËÌ(rf)
-    var rB = parseFloat(feedbackRadBase.textContent);	//–‡‰ËÛÒ ÓÒÌÓ‚ÌÓÈ ÓÍÛÊÌÓÒÚË (rb)
-    var dD = parseFloat(feedbackRadDiv.textContent);	//ƒÂÎËÚÂÎ¸Ì˚È ‰Ë‡ÏÂÚ (dd)
+    var aCorn = parseFloat(alfaCorn.value);				//–ì—Ä–∞–¥—É—Å—ã —É–≥–ª–∞ "–∞–ª—å—Ñ–∞"
+    var aMin = parseFloat(alfaMin.value);				//–ú–∏–Ω—É—Ç—ã —É–≥–ª–∞ "–∞–ª—å—Ñ–∞"
+    var aSec = parseFloat(alfaSec.value);				//–°–µ–∫—É–Ω–¥—ã —É–≥–ª–∞ "–∞–ª—å—Ñ–∞"
+    var bCorn = parseFloat(betaCorn.value);				//–ì—Ä–∞–¥—É—Å—ã —É–≥–ª–∞ "–±–µ—Ç–∞"
+    var bMin = parseFloat(betaMin.value);				//–ú–∏–Ω—É—Ç—ã —É–≥–ª–∞ "–±–µ—Ç–∞"
+    var bSec = parseFloat(betaSec.value);				//–°–µ–∫—É–Ω–¥—ã —É–≥–ª–∞ "–±–µ—Ç–∞"
+    var z1 = parseFloat(numberTeeths.value);			//–ß–∏—Å–ª–æ –∑—É–±—å–µ–≤ —à–µ—Å—Ç–µ—Ä–Ω–∏ 1
+    var x1 = parseFloat(shift.value);					//–°–º–µ—â–µ–Ω–∏–µ 1–π —à–µ—Å—Ç–µ—Ä–Ω–∏
+    var x2 = parseFloat(shift2.value);					//–°–º–µ—â–µ–Ω–∏–µ 2–π —à–µ—Å—Ç–µ—Ä–Ω–∏
+    var xSumm = x1 + x2;								//–°—É–º–º–∞—Ä–Ω–æ–µ —Å–º–µ—â–µ–Ω–∏–µ
+    var alfa;											//–£–≥–æ–ª "–∞–ª—å—Ñ–∞" –≤ —Ä–∞–¥–∏–∞–Ω–∞—Ö
+    var beta;											//–£–≥–æ–ª "–±–µ—Ç–∞" –≤ —Ä–∞–¥–∏–∞–Ω–∞—Ö
+	var xMin;											//–ú–∏–Ω–∏–º–∞–ª—å–Ω–æ–µ –∑–Ω–∞—á–µ–Ω–∏–µ —Ö
+	var xMax;											//–ú–∞–∫—Å–∏–º–∞–ª—å–Ω–æ–µ –∑–Ω–∞—á–µ–Ω–∏–µ —Ö
+    var rA = parseFloat(feedbackRadTops.textContent);	//–†–∞–¥–∏—É—Å –≤–µ—Ä—à–∏–Ω –∑—É–±—å–µ–≤ (ra)
+    var rF = parseFloat(feedbackRadHol.textContent);	//–†–∞–¥–∏—É—Å –≤–ø–∞–¥–∏–Ω(rf)
+    var rB = parseFloat(feedbackRadBase.textContent);	//–†–∞–¥–∏—É—Å –æ—Å–Ω–æ–≤–Ω–æ–π –æ–∫—Ä—É–∂–Ω–æ—Å—Ç–∏ (rb)
+    var dD = parseFloat(feedbackRadDiv.textContent);	//–î–µ–ª–∏—Ç–µ–ª—å–Ω—ã–π –¥–∏–∞–º–µ—Ç—Ä (dd)
 	var xTMin,xTMax;
-	var betaXY;								//”„ÓÎ ÓÚÍÎÓÌÂÌËˇ ÓÒÂÈ ÍÓÓ‰ËÌ‡Ú
-	var invAlfa;							//»Ì‚‡Î˛Ú‡ Û„Î‡ ‡Î¸Ù‡
+	var betaXY;											//–£–≥–æ–ª –æ—Ç–∫–ª–æ–Ω–µ–Ω–∏—è –æ—Å–µ–π –∫–æ–æ—Ä–¥–∏–Ω–∞—Ç
+	var invAlfa;										//–ò–Ω–≤–∞–ª—é—Ç–∞ —É–≥–ª–∞ –∞–ª—å—Ñ–∞
 	var alfaT;
 
-    //œÂÂ‚Ó‰ „‡‰ÛÒÓ‚ Û„Î‡ "‡Î¸Ù‡" ‚ ‡‰Ë‡Ì˚
-    alfa = (aCorn + aMin / 60 + aSec / 3600) * (Math.PI / 180);
+    //–ü–µ—Ä–µ–≤–æ–¥ –≥—Ä–∞–¥—É—Å–æ–≤ —É–≥–ª–∞ "–∞–ª—å—Ñ–∞" –≤ —Ä–∞–¥–∏–∞–Ω—ã
+    alfa=(aCorn+aMin/60+aSec/3600)*(Math.PI/180);
 
-    //œÂÂ‚Ó‰ „‡‰ÛÒÓ‚ Û„Î‡ "·ÂÚ‡" ‚ ‡‰Ë‡Ì˚
+    //–ü–µ—Ä–µ–≤–æ–¥ –≥—Ä–∞–¥—É—Å–æ–≤ —É–≥–ª–∞ "–±–µ—Ç–∞" –≤ —Ä–∞–¥–∏–∞–Ω—ã
     beta = (bCorn + bMin / 60 + bSec / 3600) * (Math.PI / 180);
 
-
     if ((beta === 0) && (xSumm === 0)) {
-        //”„ÓÎ ÔÓÙËÎˇ
+        //–£–≥–æ–ª –ø—Ä–æ—Ñ–∏–ª—è
         alfaT = alfa;
     }else {
         alfaT = Math.atan(Math.tan(alfa) / Math.cos(beta));
     }
 
-    //”„ÓÎ ÓÚÍÎÓÌÂÌËˇ ÓÒÂÈ ÍÓÓ‰ËÌ‡Ú ÓÚ ÚÓ˜ÍË Ì‡˜‡Î‡
+    //–£–≥–æ–ª –æ—Ç–∫–ª–æ–Ω–µ–Ω–∏—è –æ—Å–µ–π –∫–æ–æ—Ä–¥–∏–Ω–∞—Ç –æ—Ç —Ç–æ—á–∫–∏ –Ω–∞—á–∞–ª–∞
     if (x1 === 0) {
         invAlfa = Math.tan(alfa) - alfa;
         betaXY = Math.PI / (2 * z1) + invAlfa;
@@ -49,32 +48,12 @@ function buttonXY(){
         invAlfa = Math.tan(alfa) - alfa;
         betaXY = Math.PI / (2 * z1) + invAlfa + 2 * (Math.tan(alfa)) * x1 / z1;
     }
-    //œÓ‚ÓÓÚ ÍÓÓ‰ËÌ‡Ú, ˜ÚÓ·˚ ÁÛ· ·˚Î ÔÓ ˆÂÌÚÛ
+    //–ü–æ–≤–æ—Ä–æ—Ç –∫–æ–æ—Ä–¥–∏–Ω–∞—Ç, —á—Ç–æ–±—ã –∑—É–± –±—ã–ª –ø–æ —Ü–µ–Ω—Ç—Ä—É
     while ((betaXY - Math.PI) > 0) {
         betaXY = betaXY - Math.PI
     }
 
-
-
-    //dNov =  103.2462;
-    //var rNov = dNov/2;
-    //xRasch = thick(dD, dNov, alfaT, alfa, z1, x1)/2;
-
-
-    //var alfaP = Math.acos(rB/rNov);
-
-    //xRasch = (yRasch/Math.tan(invaluta(alfaP)))-rB;
-
-
-    //yRasch =
-    //xRasch = yRasch/(Math.tan(betaXY-(Math.asin(xRasch/rNov))))-rB;
-
-
-
-
-
-
-    //ŒÔÂ‰ÂÎÂÌËÂ ‰ÂÈÒÚ‚ËÚÂÎ¸Ì˚ı ÍÓÓ‰ËÌ‡Ú
+    //–û–ø—Ä–µ–¥–µ–ª–µ–Ω–∏–µ –¥–µ–π—Å—Ç–≤–∏—Ç–µ–ª—å–Ω—ã—Ö –∫–æ–æ—Ä–¥–∏–Ω–∞—Ç
     if (rA > rF) {
         xMax = rA - rB;
         xMin = rF - rB;
@@ -83,7 +62,7 @@ function buttonXY(){
         xMin = rA - rB;
     }
 
-    //ŒÔÂ‰ÂÎÂÌËÂ ËÌÚÂ‚‡Î‡
+    //–û–ø—Ä–µ–¥–µ–ª–µ–Ω–∏–µ –∏–Ω—Ç–µ—Ä–≤–∞–ª–∞
     if (rF > rB) {
         xTMax = xMax / rB;
         xTMin = xMin / rB;
@@ -93,7 +72,8 @@ function buttonXY(){
         xTMin = (1-Math.cos(alfa))/Math.cos(alfa) - 2.4/(z1*Math.cos(alfa));
         xTMax = (1-Math.cos(alfa))/Math.cos(alfa) + 2/(z1*Math.cos(alfa));
     }
-
+	
+	//–†–∞—Å—á–µ—Ç –∫—Ä–∞–π–Ω–∏—Ö —Ç–æ—á–µ–∫ —ç–≤–æ–ª—å–≤–Ω—Ç—ã
     var rMin = rB+(xMin);
 
     var alfaPMin = Math.acos(rB/rMin);
@@ -106,33 +86,15 @@ function buttonXY(){
     var yMax= Math.sin(invaluta(alfaPMax))*rMax;
     var xMax1 = (yMax/Math.tan(invaluta(alfaPMax)))-rB;
 
-    console.log('rB = '+rB);
-    console.log('rA = '+rA);
-    console.log('rF = '+rF);
-    console.log('xMix = '+xMin);
-    console.log('xMax = '+xMax);
-    console.log('xTMix = '+xTMin);
-    /*console.log('se1 = '+se1);
-    console.log('se2 = '+se2);
-    console.log('se1 = '+dD+' '+dMin+' '+alfaT+' '+alfa+' '+z1+' '+x1);
-    console.log('se2 = '+dD+' '+dMax+' '+alfaT+' '+alfa+' '+z1+' '+x1);*/
-    console.log('xMin = '+xMin1);
-    console.log('yMin = '+yMin);
-    console.log('xMax = '+xMax1);
-    console.log('yMax = '+yMax);
-    console.log('dMax = '+((xMax+rB)*2));
-    console.log('dMin = '+((xMin+rB)*2));
-
-
+	//–†–∞—Å—á–µ—Ç —Ç–æ—á–µ–∫ —ç–≤–æ–ª—å–≤–µ–Ω—Ç—ã —Ö –∏ —É, –Ω–µ
     var alfaP;
     var xRasch = [];
     var yRasch = [];
     var rRasch = rF+0.05;
-    var x=0;
+	var i;
+	var x=0;
     var y=0;
     for (i=1; rRasch<rA; i++){
-
-
         alfaP = Math.acos(rB/rRasch);
         yRasch[i] = Math.sin(invaluta(alfaP))*rRasch;
        	y=yRasch[i];
@@ -142,64 +104,51 @@ function buttonXY(){
         console.log('x'+i+' = '+x+'dX = '+((x+rB)*2));
         console.log('y'+i+' = '+y);
 	}
+	
+	//–í—ã–≤–æ–¥–∏–º —Ä–∞—Å—á–∏—Ç–∞–Ω–Ω—ã–µ —Ç–æ—á–∫–∏ –Ω–∞ —ç–∫—Ä–∞–Ω —Å –ø–æ—Å—Ç—Ä–æ–µ–Ω–∏–µ–º —è—á–µ–µ–∫ —Ç–∞–±–ª–∏—Ü—ã
+	for (j=1; j<=i;j++){
+		var newEl = document.createElement('tr');
+		newEl.className='trEvol';
+		newEl.id = 'tr'+j;
+		var positions = document.getElementById('x1');
+		positions.appendChild(newEl);
 
+		for (k=0; k<2; k++){
+			var newEl1 = document.createElement('td');
+			newEl1.className='tdEvol';
+			//–ü–æ–æ—á–µ—Ä–µ–¥–Ω—ã–π –≤—ã–≤–æ–¥ —Ö –∏ —É –≤ —Ä–∞–∑–Ω—ã—Ö —è—á–µ–π–∫–∞—Ö —Ç–∞–±–ª–∏—Ü—ã
+			if (k%2===0){
+				if (xRasch[j]===undefined||xRasch[j]===null) {
+					continue;
+					}
+				var newText1 = document.createTextNode(xRasch[j].toFixed(4));
+			}
+			else{
+				if (yRasch[j]===undefined||yRasch[j]===null) {
+					continue;
+					}
+			var newText1 = document.createTextNode(yRasch[j].toFixed(4));}
+			newEl1.appendChild(newText1);
 
-
-
-
-
-
-
-
-
-for (j=1; j<=10;j++){
-    var newEl = document.createElement('tr');
-    newEl.className='trEvol';
-    newEl.id = 'tr'+j;
-    var positions = document.getElementById('x1');
-    positions.appendChild(newEl);
-
-    for (i=1; i<=2; i++){
-        var newEl1 = document.createElement('td');
-        //var number = i;
-        newEl1.className='tdEvol';
-
-        if (i%2===0){var newText1 = document.createTextNode(i);}
-        else{var newText1 = document.createTextNode(j);}
-        newEl1.appendChild(newText1);
-
-        var positions1 = document.getElementById(newEl.id);
-        positions1.appendChild(newEl1);
-
-
-    }
+			var positions1 = document.getElementById(newEl.id);
+			positions1.appendChild(newEl1);
+		}
+	}
 }
 
-
-}
-
-//¬˚ıÓ‰ ËÁ ÙÛÌÍˆËË ‡Ò˜ÂÚ‡ ˝‚ÓÎ¸‚ÂÌÚ˚
+//–í—ã—Ö–æ–¥ –∏–∑ —Ñ—É–Ω–∫—Ü–∏–∏ —Ä–∞—Å—á–µ—Ç–∞ —ç–≤–æ–ª—å–≤–µ–Ω—Ç—ã
 function exitXY(){
-
-//¬˚·Ë‡ÂÏ ˝ÎÎÂÏÂÌÚ˚ ‰Îˇ Û‰‡ÎÂÌËˇ
-
-number =[];
-
-var number = document.getElementsByClassName('trEvol');
-
-for (i=0; i<number.length;i=i/2) {
-    var removeEl = number[i];
-    var containerEl = document.getElementById('x1');
-    containerEl.removeChild(removeEl);
-}
-//var containerEl = number.parentNode;//document.getElementById('x1');
-//containerEl.removeChild(number)
-
-
-
-    //»ÁÏÂÌÂÌËÂ ÁÌ‡˜ÂÌËˇ ‚Ë‰ËÏÓÒÚË Ú‡·ÎËˆ˚
-var pointsEvolvent = document.getElementById('pointsEvolvent');
-pointsEvolvent.style.display = 'none';
+	//–í—ã–±–∏—Ä–∞–µ–º —ç–ª–ª–µ–º–µ–Ω—Ç—ã –¥–ª—è —É–¥–∞–ª–µ–Ω–∏—è
+	number =[];
+	var number = document.getElementsByClassName('trEvol');
+	for (i=0; i<number.length;i=i/2) {
+		var removeEl = number[i];
+		var containerEl = document.getElementById('x1');
+		containerEl.removeChild(removeEl);
+	}
+    //–ò–∑–º–µ–Ω–µ–Ω–∏–µ –∑–Ω–∞—á–µ–Ω–∏—è –≤–∏–¥–∏–º–æ—Å—Ç–∏ —Ç–∞–±–ª–∏—Ü—ã
+	var pointsEvolvent = document.getElementById('pointsEvolvent');
+	pointsEvolvent.style.display = 'none';
 
 }
 

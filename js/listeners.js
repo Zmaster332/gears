@@ -1,5 +1,8 @@
 ﻿//Задаем слушатели событий
 
+helicalNo.addEventListener('click',helicalNoChosen,false);
+helicalYes.addEventListener('click',helicalYesChosen,false);
+
 alfaCorn.addEventListener('blur',function(){checkCorn(alfaCorn,feedbackAlfaCorn,unit = '')},false);
 alfaCorn.addEventListener('keydown',function(){checkCorn(alfaCorn,feedbackAlfaCorn,unit = '')},false);
 

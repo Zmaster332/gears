@@ -2,9 +2,21 @@
 window.onload=function () {
     var errorJS = document.getElementById('errorJS');
     errorJS.parentNode.removeChild(errorJS);
+	var tiltAngle = document.getElementById('hideTiltAngle');
+	var teeths2 = document.getElementById('hideTeeths2');
+	var teeths22 = document.getElementById('hideTeeths22');
+	var shift2 = document.getElementById('hideShift2');
+	tiltAngle.style.display = 'none';
+	teeths2.style.display = 'none';
+	teeths22.style.display = 'none';
+	shift2.style.display = 'none';
 }
 
 //Основные ячейки для работы
+var helicalNo = document.getElementById('helicalNo');
+var helicalYes = document.getElementById('helicalYes');
+
+
 
 var alfaCorn = document.getElementById('alfaCorn');
 var alfaMin = document.getElementById('alfaMin');

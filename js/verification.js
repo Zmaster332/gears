@@ -1,3 +1,4 @@
+
 // Объявляем функцию проверки правильности введенных градусов угла
 function checkCorn(corn, feedback, unit) {
 
@@ -128,3 +129,29 @@ function isInteger(value){
     }
     return value % 1 === 0;
 }
+
+//Выбор типа зубчатой эвольвентной передачи
+function helicalNoChosen(){
+	var tiltAngle = document.getElementById('hideTiltAngle');
+	var teeths2 = document.getElementById('hideTeeths2');
+	var teeths22 = document.getElementById('hideTeeths22');
+	var shift2 = document.getElementById('hideShift2');
+	tiltAngle.style.display = 'none';
+	teeths2.style.display = 'none';
+	teeths22.style.display = 'none';
+	shift2.style.display = 'none';
+}
+
+function helicalYesChosen(){
+	var tiltAngle = document.getElementById('hideTiltAngle');
+	var teeths2 = document.getElementById('hideTeeths2');
+	var teeths22 = document.getElementById('hideTeeths22');
+	var shift2 = document.getElementById('hideShift2');
+	tiltAngle.style.display = '';
+	teeths2.style.display = '';
+	teeths22.style.display = '';
+	shift2.style.display = '';
+}
+
+
+

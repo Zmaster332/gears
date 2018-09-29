@@ -27,21 +27,13 @@
 			<label for="wormGear">Расчет геометрии червячных цилиндрических передач</label>
 
 
-			<!--<div class="nameImage" id="firstPartCalc">1. Выберите свою передачу для расчета</div>
-			<input type="radio" name="gears" value="cylindrical" checked="checked" id="cylindricalGear"/>
-			<label for="cylindricalGear">Расчет геометрии цилиндрических зубчатых передач внешнего зацепления</label><br/>
-			<input type="radio" name="gears" value="bevelStraight" id="bevelStraightGear"/>
-			<label for="bevelStraightGear">Расчет геометрии зубчатых конических передач с прямыми зубьями</label><br/>
-			<input type="radio" name="gears" value="bevelRound" id="bevelRoundGear"/>
-			<label for="bevelRoundGear">Расчет геометрии зубчатых конических передач с круговыми зубьями</label><br/>
-			<input type="radio" name="gears" value="worm" id="wormGear"/>
-			<label for="wormGear">Расчет геометрии червячных цилиндрических передач</label>-->
-		<!--<div class="nameImage" id="firstPartCalc">1. Выбор параметров первоначальных</div>
-        <div>Передача Прямозубая?</div></br>
-        <div id="buttonY" >Да</div><div id="buttonN" >Нет</div>-->
-
         <div class="nameImage" id="secondPartCalc">2. Введите исходные данные</div>
-        <table id="vvedi">
+		<div class="nameImage">Передача косозубая?</div>
+		<input type="radio" name="helical" value="helicalN" checked="checked" id="helicalNo"/>
+			<label for="helicalN">Нет</label>
+		<input type="radio" name="helical" value="helicalY" id="helicalYes"/>
+			<label for="helicalY">Да<br/></label>
+        <table id="dataEntry">
             <thead>
 				<tr>
 					<th>Параметр</th>
@@ -51,7 +43,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Угол профиля исходного контура (&alpha;)</td>
+                    <td>Угол профиля исходного контура (&alpha;<sub>р</sub>)</td>
                     <td>
                         <input type="text" id="alfaCorn" value="20"/><label for="alfaCorn"> &deg;</label><br/>
                         <input type="text" id="alfaMin" value="0"/><label for="alfaMin"> '</label><br/>
@@ -64,18 +56,17 @@
                         <div id="feedbackAlfaRad"></div>
                     </td>
                 </tr>
-                <tr>
+                <tr id ="hideTiltAngle">
                     <td>Угол наклона зубьев (&beta;)</td>
                     <td><input type="text" id="betaCorn" value="0"/><label for="betaCorn"> &deg;</label><br/>
                         <input type="text" id="betaMin" value="0"/><label for="betaMin"> '</label><br/>
                         <input type="text" id="betaSec" value="0"/><label for="betaSec"> "</label>
                     </td>
-                    <td><div id="feedbackBetaCorn">Для прямых зубьев 0&deg;0'0"</div>
+                    <td ><div id="feedbackBetaCorn">Для прямых зубьев 0&deg;0'0"</div>
                         <div id="feedbackBetaMin"></div>
                         <div id="feedbackBetaSec"></div>
                         <div id="feedbackBetaRad"></div>
                     </td>
-
                 </tr>
                 <tr>
                     <td><label for="module">Модуль (<em>m</em>)</label></td>
@@ -83,30 +74,30 @@
                     <td><div id="errorModule"></div></td>
                 </tr>
                 <tr>
-                    <td><label for="numberTeeths">Число зубьев расчитываемого колеса (<em>z</em>)</label></td>
+                    <td><label for="numberTeeths">Число зубьев колеса (<em>z</em>)</label></td>
                     <td><input type="text" id="numberTeeths" value="345"/></td>
                     <td><div id="errorNumberTeeths"></div></td>
                 </tr>
-                <tr>
-                    <td><label for="rollD">Введите размер роликов (D)</label></td>
-                    <td><input type="text" id="rollD" value="0"/></td>
-                    <td><div id="errorRollD">Если не известно - 0</div></td>
-                </tr>
-                <tr>
+				<tr id="hideTeeths2">
                     <td><label for="numberTeeths2">Число зубьев ответного колеса(<em>z<sub>2</sub></em>)</label></td>
                     <td><input type="text" id="numberTeeths2" value="55"/></td>
                     <td><div id="errorNumberTeeths2"></div></td>
-                </tr>
+                </tr>                             
                 <tr>
                     <td><label for="shift">Коэффициент смещения (<em>x</em>)</label></td>
                     <td><input type="text" id="shift" value="0"/></td>
                     <td><div id="feedbackShift">0, если не задано</div></td>
                 </tr>
-                <tr>
+                <tr id="hideShift2">
                     <td><label for="shift2">Коэффициент смещения ответного колеса(<em>x<sub>2</sub></em>)</label></td>
                     <td><input type="text" id="shift2" value="0"/></td>
                     <td><div id="feedbackShift2"></div></td>
                 </tr>
+				<tr>
+                    <td><label for="rollD">Введите размер роликов (D)</label></td>
+                    <td><input type="text" id="rollD" value="0"/></td>
+                    <td><div id="errorRollD">Если не известно - 0</div></td>
+                </tr>   
             </tbody>
         </table>
         <div id="buttonCalc" >рассчитать</div>
@@ -143,11 +134,11 @@
 						<td></td>
 					</tr>
 					<tr>
-						<td>Число зубьев расчитываемого колеса (<em>z</em>)</td>
+						<td>Число зубьев колеса (<em>z</em>)</td>
 						<td><div id="feedbackNumberTeeths"></div></td>
 						<td></td>
 					</tr>
-					<tr>
+					<tr id="hideTeeths22">
 						<td>Число зубьев ответного колеса (<em>z<sub>2</sub></em>)</td>
 						<td><div id="feedbackNumberTeeths2"></div></td>
 						<td></td>
