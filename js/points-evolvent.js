@@ -2,7 +2,9 @@
 function buttonXY(){
 
 	var pointsEvolvent = document.getElementById('pointsEvolvent');
+    var projection = document.getElementById('projection');
 	pointsEvolvent.style.display = 'block';
+    projection.style.display = 'block';
 
     var aCorn = parseFloat(alfaCorn.value);				//Градусы угла "альфа"
     var aMin = parseFloat(alfaMin.value);				//Минуты угла "альфа"
@@ -94,19 +96,20 @@ function buttonXY(){
 	var i;
 	var x=0;
     var y=0;
-    for (i=1; rRasch<rA; i++){
+
+    //Присваивание точек массивам
+    for (i=0; rRasch<rA; i++){
         alfaP = Math.acos(rB/rRasch);
         yRasch[i] = Math.sin(invaluta(alfaP))*rRasch;
        	y=yRasch[i];
         xRasch[i] = (y/Math.tan(invaluta(alfaP)))-rB;
         x=xRasch[i];
         rRasch = rRasch+0.05;
-        console.log('x'+i+' = '+x+'dX = '+((x+rB)*2));
-        console.log('y'+i+' = '+y);
+        console.log(x+'  '+y);
 	}
 	
 	//Выводим расчитанные точки на экран с построением ячеек таблицы
-	for (j=1; j<=i;j++){
+	for (j=0; j<=i;j++){
 		var newEl = document.createElement('tr');
 		newEl.className='trEvol';
 		newEl.id = 'tr'+j;
@@ -115,6 +118,7 @@ function buttonXY(){
 
 		for (k=0; k<2; k++){
 			var newEl1 = document.createElement('td');
+			newEl1.id = 'td'+(parseInt(k)+parseInt(j)*2);
 			newEl1.className='tdEvol';
 			//Поочередный вывод х и у в разных ячейках таблицы
 			if (k%2===0){
@@ -134,11 +138,12 @@ function buttonXY(){
 			positions1.appendChild(newEl1);
 		}
 	}
+    canvasEvolta();
 }
 
 //Выход из функции расчета эвольвенты
 function exitXY(){
-	//Выбираем эллементы для удаления
+	//Выбираем эллементы для удаления и удаляем
 	number =[];
 	var number = document.getElementsByClassName('trEvol');
 	for (i=0; i<number.length;i=i/2) {
@@ -146,9 +151,18 @@ function exitXY(){
 		var containerEl = document.getElementById('x1');
 		containerEl.removeChild(removeEl);
 	}
+
+	//Удаляем узел с Canvas
+    var canvas = document.getElementById('can');
+
+
+
     //Изменение значения видимости таблицы
 	var pointsEvolvent = document.getElementById('pointsEvolvent');
 	pointsEvolvent.style.display = 'none';
+    var projection = document.getElementById('projection');
+    projection.removeChild(can);
+    projection.style.display = 'none';
 
 }
 

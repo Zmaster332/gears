@@ -152,7 +152,7 @@ table {
 	position: relative;
 	}
 
-#buttonXY, #buttonExit {
+#buttonXY {
 	top: 4px;
 	text-align: center;
 	text-decoration: none;
@@ -207,6 +207,24 @@ table {
 	position: relative;
 	}
 
+#buttonExit {
+	top: 4px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 18px;
+	font-family: "Times New Roman";
+	background-color: #cb6868;
+	left: 33%;
+	width: 33%;
+	height: auto;
+	border: 1px solid black;
+	border-radius: 2px 2px 2px 2px;
+	margin-top: 20px;
+	color: #f3dad1;
+	cursor: pointer;
+	position: relative;
+}
 #buttonExit:focus{
 	top: 4px;
 	text-align: center;
@@ -258,13 +276,58 @@ table {
 
 #pointsEvolvent{
 	display: none;
+	border: black;
+	border-style: solid;
+	border-width: 2px;
 	top: 20px;
-	width: 100%;
-	height: 100%;
+	width: 25%;
+	height: 95%;
 	background-repeat: no-repeat;
 	background-color: #efefef;
 	overflow: auto;
 	position: absolute;
 }
 
+#svgNew{
+	display: none;
+	border: black;
+	border-style: solid;
+	border-width: 2px;
+	left: 50%;
+	top: 20px;
+	width: 100%;
+	height: 50%;
+	background-repeat: no-repeat;
+	background-color: #efefef;
+	overflow: scroll;
+	position: absolute;
+}
+#projection{
+	display: none;
+	border: black;
+	border-style: solid;
+	border-width: 2px;
+	left: 25%;
+	top: 20px;
+	width: 75%;
+	height: 95%;
+	background-repeat: no-repeat;
+	background-color: #efefef;
+	overflow: scroll;
+	position: absolute;
+}
 
+#canvas{
+    direction:rtl;
+    border: black;
+    border-style: solid;
+    border-width: 1px;
+    left: 0;
+    top: 30px;
+    position: absolute;
+    overflow-x: auto; /* прокрутка по горизонтали */
+    overflow-y: auto; /* прокрутка по вертикали */
+
+
+
+}

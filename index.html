@@ -30,9 +30,9 @@
         <div class="nameImage" id="secondPartCalc">2. Введите исходные данные</div>
 		<div class="nameImage">Передача косозубая?</div>
 		<input type="radio" name="helical" value="helicalN" checked="checked" id="helicalNo"/>
-			<label for="helicalN">Нет</label>
+			<label for="helicalNo">Нет</label>
 		<input type="radio" name="helical" value="helicalY" id="helicalYes"/>
-			<label for="helicalY">Да<br/></label>
+			<label for="helicalYes">Да<br/></label>
         <table id="dataEntry">
             <thead>
 				<tr>
@@ -261,7 +261,7 @@
 			</table>
 		</div>		
 		
-		<div class="nameImage" id="pointsEvolvent">Координаты точек. для построения эвольвентного профиля	
+		<div class="nameImage" id="pointsEvolvent">Координаты точек. для построения эвольвентного профиля
         <table id="table5">
             <thead>
 				<tr>
@@ -273,7 +273,13 @@
         </table>
 		<div id="buttonExit" >Возврат к расчету</div>
 		</div>	
-		
+        <!--<div class="nameImage" id="svgNew"  >Проекцион зубчатого колеса
+            <div id="divEvolta">
+            </div>-->
+        <div class="nameImage" id="projection">Проекцион зубчатого колеса
+		</div>
+
+        </div>
 		
 		
 		
@@ -284,6 +290,8 @@
 		<script src="js/verification.js"></script>		
 		<script src="js/additional-calc.js"></script>
 		<script src="js/calculation.js"></script>
+        <script src="js/canvas-evolventa.js"></script>
+        <script src="js/svg-evolventa.js"></script>
 		<script src="js/points-evolvent.js"></script>
 		<script src="js/listeners.js"></script>
 		
