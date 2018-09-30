@@ -28,5 +28,9 @@ buttonCalc.addEventListener('click',calculation,false);
 //Вывод таблицы с точками эвольвенты
 tableXY.addEventListener('click',buttonXY,false);
 
+//Строим профиль эвольвенты
+build.addEventListener('click',canvasEvolta,false);
+
 //Выход из таблицы с точками эвольвенты
 exit.addEventListener('click',exitXY,false);
+

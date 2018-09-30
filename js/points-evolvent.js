@@ -98,18 +98,17 @@ function buttonXY(){
     var y=0;
 
     //Присваивание точек массивам
-    for (i=0; rRasch<rA; i++){
+    for (i=0; rRasch<=rA; i++){
         alfaP = Math.acos(rB/rRasch);
         yRasch[i] = Math.sin(invaluta(alfaP))*rRasch;
        	y=yRasch[i];
         xRasch[i] = (y/Math.tan(invaluta(alfaP)))-rB;
         x=xRasch[i];
         rRasch = rRasch+0.05;
-        console.log(x+'  '+y);
 	}
-	
+	var j=0;
 	//Выводим расчитанные точки на экран с построением ячеек таблицы
-	for (j=0; j<=i;j++){
+	for (j=0; j<i;j++){
 		var newEl = document.createElement('tr');
 		newEl.className='trEvol';
 		newEl.id = 'tr'+j;
@@ -120,6 +119,7 @@ function buttonXY(){
 			var newEl1 = document.createElement('td');
 			newEl1.id = 'td'+(parseInt(k)+parseInt(j)*2);
 			newEl1.className='tdEvol';
+
 			//Поочередный вывод х и у в разных ячейках таблицы
 			if (k%2===0){
 				if (xRasch[j]===undefined||xRasch[j]===null) {
@@ -138,7 +138,6 @@ function buttonXY(){
 			positions1.appendChild(newEl1);
 		}
 	}
-    canvasEvolta();
 }
 
 //Выход из функции расчета эвольвенты

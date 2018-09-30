@@ -35,4 +35,5 @@ var numberTeeths2 = document.getElementById('numberTeeths2');
 var shift2 = document.getElementById('shift2');
 
 var tableXY = document.getElementById('buttonXY');
+var build = document.getElementById('buttonBuild');
 var exit = document.getElementById('buttonExit');
