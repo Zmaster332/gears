@@ -113,11 +113,11 @@ function checkShift(shift,feedback) {
     if (isNaN(shiftEnd/1)) {
         feedback.textContent = 'Введено не число';
         shift.value = 0;
-    }else if (((shiftEnd/1)>=(-2.0))&&((shiftEnd/1)<=2.0)){
+    }else if (((shiftEnd/1)>=(-10.0))&&((shiftEnd/1)<=10.0)){
         shift.value = shiftEnd/1;
         feedback.textContent = shift.value;
     }else{
-        feedback.textContent = 'Значение должно быть в пределах от -2.0 до 2.0' ;
+        feedback.textContent = 'Значение должно быть в пределах от -10.0 до 10.0' ;
         shift.value = 0;
     }
 }

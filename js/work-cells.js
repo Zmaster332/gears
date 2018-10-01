@@ -16,8 +16,6 @@ window.onload=function () {
 var helicalNo = document.getElementById('helicalNo');
 var helicalYes = document.getElementById('helicalYes');
 
-
-
 var alfaCorn = document.getElementById('alfaCorn');
 var alfaMin = document.getElementById('alfaMin');
 var alfaSec = document.getElementById('alfaSec');

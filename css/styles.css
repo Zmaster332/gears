@@ -13,38 +13,55 @@ h1{
 	display: block;
 	background-color: #efefef;
 	background-size: auto auto;
-    height: 90%;
-    width: 635px;
+    height: 92%;
+    width: 639px;
 	background-repeat: no-repeat;
 	border-color: black;
 	border-style: solid;
+	border-width: 2px;
 	position: absolute;
 }
+/*Центральная часть*/
+#partCenter{
+	left: 641px;
+	width: 779px;
+}
 
-#nameGears{
-	top: 0;
-}
-#nameDrawingProfile {
-	top: 50px;
-}
-.nameImage {	
+/*Правая часть*/
+#partRight{	
+	left: 1421px;
+	width: 490px;
+	}
+
+.nameHeader {	
 	text-align: center;
 	font-family: "Times New Roman";
-	font-size: 120%;
+	font-size: 170%;
+	font-weight: normal;
+	color: black;
+	position: relative;
+	overflow: auto;
+}
+.name {	
+	text-align: center;
+	font-family: "Times New Roman";
+	font-size: 140%;
 	font-weight: normal;
 	color: black;
 	position: relative;
 	overflow: auto;
 }
 
-#imageGear {
-	background-image: url("../images/cylindrical_gears_external_01.png");	
-	top: 15px;
+#nameGears{
+	margin-top:10px;
+	margin-bottom: 10px;
 }
-#imageDrawingProfile{
-	top: 65px;
-	background-image: url("../images/cylindrical_gears_standert_profile.png");
+
+#nameDrawingProfile {
+	margin-top: 30px;	
+	margin-bottom: 10px;
 }
+/*Параметры выводимых картинок*/
 .images {
 	display: block;
 	background-size: auto 100%;
@@ -57,18 +74,37 @@ h1{
 	overflow: auto;
 }
 
-#partCenter{left: 600px;}
+#imageGear {
+	background-image: url("../images/cylindrical_gears_external_01.png");
+}
 
-#partRight{	left: 1200px;}
+#imageDrawingProfile{
+	background-image: url("../images/cylindrical_gears_standert_profile.png");
+}
 
 /*Стили центральной колонки*/
 
 #firstPartCalc, #secondPartCalc, #thirdPartCalc, #fourthPartCalc{
 	margin-top: 10px;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
+	}
 
-
+/*Параметры выбранного варианта передачи*/
+.labelMy{
+	text-align: center;
+	font-family: "Times New Roman";
+	font-size: 140%;
+	font-weight: normal;
+	color: black;
+	margin-top: 10px;
+	margin-bottom: 20px;	
 }
+
+#cylindricalGear{	
+}
+	
+	
+	
 #table4,#table5{
 	height: 50%;
 }

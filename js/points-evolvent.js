@@ -92,7 +92,7 @@ function buttonXY(){
     var alfaP;
     var xRasch = [];
     var yRasch = [];
-    var rRasch = rF+0.05;
+    var rRasch = rF;
 	var i;
 	var x=0;
     var y=0;
@@ -122,13 +122,13 @@ function buttonXY(){
 
 			//Поочередный вывод х и у в разных ячейках таблицы
 			if (k%2===0){
-				if (xRasch[j]===undefined||xRasch[j]===null) {
+				if (isNaN(xRasch[j])) {
 					continue;
 					}
 				var newText1 = document.createTextNode(xRasch[j].toFixed(4));
 			}
 			else{
-				if (yRasch[j]===undefined||yRasch[j]===null) {
+				if (isNaN(yRasch[j])) {
 					continue;
 					}
 			var newText1 = document.createTextNode(yRasch[j].toFixed(4));}
