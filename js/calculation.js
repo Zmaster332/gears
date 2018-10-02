@@ -1,19 +1,73 @@
-//Расчет
-function calculation() {
+function calc() {
 
-    //Перепроверка введенных данных
+	
+	
+
+	
+
+	//Проверяем на правильность ввода, чтобы не было косяков и запускаем
+	if(parseFloat(module.value)>=0.05&&parseFloat(module.value)<=100&&parseFloat(numberTeeths.value)>0){
+	
+		errorModule.textContent = module.value;
+		feedbackModule.textContent = module.value;
+		feedbackNumberTeeths.textContent = numberTeeths.value;
+		errorNumberTeeths.textContent = numberTeeths.value;	
+		
+		checkCorn(alfaCorn, feedbackAlfaCorn, unit = '°');
+		checkMS(alfaMin, feedbackAlfaMin, unit = '\'');
+		checkMS(alfaSec, feedbackAlfaSec, unit = '\"'); 
+
+		
+			
+		//Запуск расчета		
+		calculation();
+		
+		//Показываем таблицу
+		var postEntry = document.getElementById('right');
+		postEntry.style.display = 'block';
+		var xy = document.getElementById('buttonXY');
+		xy.style.display = 'block';	
+		
+		
+	}else if(parseFloat(module.value)<0.05){
+	
+		//На всякий случай прячем таблицу повторно	
+		var postEntry = document.getElementById('right');
+		postEntry.style.display = 'none';
+		var xy = document.getElementById('buttonXY');
+		xy.style.display = 'none';	
+		
+		
+		errorModule.textContent = 'Модуль не задан';	
+	}
+}
+		//errorModule.textContent = 'Значение должно быть в пределах от 0.05 до 100' ;		
+	
+	//checkModule(module, feedbackModule, errorModule);
+	//}
+	//}
+	//else{
+	//	checkModule(module, feedbackModule, errorModule);
+	//	errorModule.textContent = 'Значение должно быть в пределах от 0.05 до 100' ;
+	//	}
+	
+   /* checkRoll(rollD, errorRollD);
     checkCorn(alfaCorn, feedbackAlfaCorn, unit = '°');
     checkMS(alfaMin, feedbackAlfaMin, unit = '\'');
-    checkMS(alfaSec, feedbackAlfaSec, unit = '\'');
-    checkModule(module, feedbackModule, errorModule);
-    checkRoll(rollD, errorRollD);
-    checkCorn(betaCorn, feedbackBetaCorn, unit = '°');
+    checkMS(alfaSec, feedbackAlfaSec, unit = '\"'); 
+	checkCorn(betaCorn, feedbackBetaCorn, unit = '°');
     checkMS(betaMin, feedbackBetaMin, unit = '\'');
-    checkMS(betaSec, feedbackBetaSec, unit = '\'');
+    checkMS(betaSec, feedbackBetaSec, unit = '\"');
     checkNumberTeeths(numberTeeths, feedbackNumberTeeths, errorNumberTeeths);
     checkNumberTeeths(numberTeeths2, feedbackNumberTeeths2, errorNumberTeeths2);
     checkShift(shift, feedbackShift);
     checkShift(shift2, feedbackShift2);
+
+	*/
+	
+	
+
+function calculation() {
 
     var aCorn = parseFloat(alfaCorn.value);       //Градусы угла "альфа"
     var aMin = parseFloat(alfaMin.value);         //Минуты угла "альфа"
@@ -61,10 +115,11 @@ function calculation() {
     var coefHeightHead = 1.0;			//Коэффициент высоты головки зуба(ha*)
     var c = 0.25;						//Коэффициент радиального зазора
     var u;								//Передаточное отношение
-
-    //Перевод градусов угла "альфа" в радианы
-    alfa = (aCorn + aMin / 60 + aSec / 3600) * (Math.PI / 180);
-
+	
+		
+		
+	//Перевод градусов угла "альфа" в радианы
+	alfa = (aCorn + aMin / 60 + aSec / 3600) * (Math.PI / 180);
     //Перевод градусов угла "бета" в радианы
     beta = (bCorn + bMin / 60 + bSec / 3600) * (Math.PI / 180);
 
@@ -248,13 +303,9 @@ function calculation() {
         var M3 = 4*Math.pow(Math.tan(betaD),2)*Math.pow(Math.cos(M2),2);
         M = M1*Math.pow((Math.pow(lam,2)+M3),(1/2))+D;
 		number=3;
-       // M = (dRol/(2*Math.tan(betaD)))*Math.sqrt(Math.pow(lam,2)+4*Math.pow(Math.tan(betaD),2)*Math.pow(Math.cos((90/z1)+(lam/2)),2))+D;
     }
 
 	//Вывод результатов расчета в таблицу
-	feedbackAlfaRad.textContent = alfa.toFixed(5);
-	feedbackBetaRad.textContent = beta.toFixed(5);
-	
 	if(p===0){feedbackStep.textContent ='';}else{feedbackStep.textContent = p.toFixed(3);}
 	if(hP===0){feedbackDepth.textContent ='';}else{feedbackDepth.textContent = hP.toFixed(3);}
 	if(dD===0){feedbackDiamDiv.textContent ='';}else{feedbackDiamDiv.textContent = dD.toFixed(3);}
@@ -277,12 +328,4 @@ function calculation() {
 	feedbackCorn2.textContent = gamCorn+'° '+gamMin+'\' '+gamSec+'\"';
 	if(rZ===0){feedbackRadCurve.textContent ='';}else{feedbackRadCurve.textContent = rZ.toFixed(3);}
     if(M===0){feedbackRollD.textContent='';}else{feedbackRollD.textContent = M.toFixed(3);}
-	
-
-	check.textContent = alfaD;
-	check2.textContent = dRol.toFixed(7);
-
-
-
-
 }

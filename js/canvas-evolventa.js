@@ -24,8 +24,10 @@ function canvasEvolta() {
     var sTA = parseFloat(feedbackThickAddendum.textContent);	//Толщина вершины зуба(sta)
 
 
+
     /*Определяем положение новой системы координат*/
     //Перевод градусов угла "альфа" в радианы
+	
     alfa=(aCorn+aMin/60+aSec/3600)*(Math.PI/180);
 
     //Перевод градусов угла "бета" в радианы

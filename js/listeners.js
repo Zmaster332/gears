@@ -23,7 +23,7 @@ shift.addEventListener('blur',function(){checkShift(shift,feedbackShift)}, false
 shift2.addEventListener('blur',function(){checkShift(shift2,feedbackShift2)}, false);
 
 //Запуск рассчета
-buttonCalc.addEventListener('click',calculation,false);
+buttonCalc.addEventListener('click',calc,false);
 
 //Вывод таблицы с точками эвольвенты
 tableXY.addEventListener('click',buttonXY,false);
