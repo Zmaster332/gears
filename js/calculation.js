@@ -5,17 +5,23 @@ function calc() {
 
 	
 
-	//Проверяем на правильность ввода, чтобы не было косяков и запускаем
-	if(parseFloat(module.value)>=0.05&&parseFloat(module.value)<=100&&parseFloat(numberTeeths.value)>0){
-	
-		errorModule.textContent = module.value;
-		feedbackModule.textContent = module.value;
-		feedbackNumberTeeths.textContent = numberTeeths.value;
-		errorNumberTeeths.textContent = numberTeeths.value;	
+	//Если модуль и число зубьев в нужных пределах, то запуск программы
+	if( parseFloat(module.value) >= 0.05 &&
+		parseFloat(module.value) <=100   &&
+		parseFloat(numberTeeths.value)>0 ){
 		
+		//Вывод градусов, минут и секунд угла альфа на экран
 		checkCorn(alfaCorn, feedbackAlfaCorn, unit = '°');
 		checkMS(alfaMin, feedbackAlfaMin, unit = '\'');
 		checkMS(alfaSec, feedbackAlfaSec, unit = '\"'); 
+		
+		errorModule.style.color = 'black';		
+		errorModule.textContent = module.value;		
+		feedbackModule.textContent = module.value;
+		
+		feedbackNumberTeeths.textContent = numberTeeths.value;
+		errorNumberTeeths.textContent = numberTeeths.value;	
+		
 
 		
 			
@@ -29,17 +35,24 @@ function calc() {
 		xy.style.display = 'block';	
 		
 		
-	}else if(parseFloat(module.value)<0.05){
+	}else if( ( parseFloat(module.value) < 0.05  &&
+				parseFloat(module.value) > 100 ) || 
+				parseFloat(numberTeeths.value) <= 0 ||
+				!isInteger(numberTeeths.value) ){
 	
-		//На всякий случай прячем таблицу повторно	
+		//Прячем таблицу и кнопку построения, если не правильные данные
 		var postEntry = document.getElementById('right');
 		postEntry.style.display = 'none';
-		var xy = document.getElementById('buttonXY');
-		xy.style.display = 'none';	
 		
+		var buttonXY = document.getElementById('buttonXY');		
+		buttonXY.style.display = 'none';
 		
-		errorModule.textContent = 'Модуль не задан';	
-	}
+		errorModule.style.color = 'red';
+		errorModule.textContent = 'Модуль задан не правильно';
+		errorNumberTeeths.style.color = 'red';
+		errorNumberTeeths.textContent = 'Число зубьев задано не правильно';
+		
+	}	
 }
 		//errorModule.textContent = 'Значение должно быть в пределах от 0.05 до 100' ;		
 	
