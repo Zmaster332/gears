@@ -12,8 +12,8 @@ function buttonXY(){
     var bCorn = parseFloat(betaCorn.value);				//Градусы угла "бета"
     var bMin = parseFloat(betaMin.value);				//Минуты угла "бета"
     var bSec = parseFloat(betaSec.value);				//Секунды угла "бета"
-    var z1 = parseFloat(numberTeeths.value);			//Число зубьев шестерни 1
-    var x1 = parseFloat(shift.value);					//Смещение 1й шестерни
+    var z1 = parseFloat(numberTeeths1.value);			//Число зубьев шестерни 1
+    var x1 = parseFloat(shift1.value);					//Смещение 1й шестерни
     var x2 = parseFloat(shift2.value);					//Смещение 2й шестерни
     var xSumm = x1 + x2;								//Суммарное смещение
     var alfa;											//Угол "альфа" в радианах
@@ -162,7 +162,6 @@ function exitXY(){
     var projection = document.getElementById('projection');
     projection.removeChild(can);
     projection.style.display = 'none';
-
 }
 
 

@@ -8,8 +8,8 @@ function canvasEvolta() {
     var bCorn = parseFloat(betaCorn.value);				//Градусы угла "бета"
     var bMin = parseFloat(betaMin.value);				//Минуты угла "бета"
     var bSec = parseFloat(betaSec.value);				//Секунды угла "бета"
-    var z1 = parseFloat(numberTeeths.value);			//Число зубьев шестерни 1
-    var x1 = parseFloat(shift.value);					//Смещение 1й шестерни
+    var z1 = parseFloat(numberTeeths1.value);			//Число зубьев шестерни 1
+    var x1 = parseFloat(shift1.value);					//Смещение 1й шестерни
     var x2 = parseFloat(shift2.value);					//Смещение 2й шестерни
     var xSumm = x1 + x2;								//Суммарное смещение
     var alfa;											//Угол "альфа" в радианах
@@ -29,6 +29,9 @@ function canvasEvolta() {
     //Перевод градусов угла "альфа" в радианы
 	
     alfa=(aCorn+aMin/60+aSec/3600)*(Math.PI/180);
+	
+	
+	
 
     //Перевод градусов угла "бета" в радианы
     beta = (bCorn + bMin / 60 + bSec / 3600) * (Math.PI / 180);
@@ -50,7 +53,13 @@ function canvasEvolta() {
     }
 
     //Задаем масштаб изображения
-    var scale = 500;
+	var scaleX = document.getElementById('scaleX');
+	var scaleY = document.getElementById('scaleY');
+	
+	
+	
+    var scale = (+scaleX.value) / (+scaleY.value);
+	console.log('Что-то работает' + ' scale '+scale);
 
     var text;
     var xRaschet = [];
@@ -108,6 +117,7 @@ function canvasEvolta() {
     //canvas.setAttribute('width',x0*2);
     //canvas.setAttribute('height',y0*2);
     canBorder.appendChild(canvas);
+	
 
     //Запуск прорисовки
 
