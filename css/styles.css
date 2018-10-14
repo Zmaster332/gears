@@ -1,370 +1,405 @@
-﻿#errorJS{
-	display: flex;
-	width: 100%;
-	height: 100%;
-	align-items: center;
-	align-content: center;
-	justify-content: center;
-	background-repeat: no-repeat;
-	background-color: #efefef;
-	overflow: auto;
-	position: absolute;
+﻿#errorJS {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-color: #efefef;
+    overflow: auto;
+    position: absolute;
 }
 
-body{
-	font-family: "Times New Roman";
+body {
+    font-family: "Times New Roman";
 }
 
 /*Заголовок*/
-h1{
-	text-align: center;
-	color: black;
-	height: 20px;
+h1 {
+    text-align: center;
+    color: black;
+    height: 20px;
+	width: 1900px;
 }
 
-h2{
-	text-align: center;
-	color: blue;
-	font-size: 160%;	
-	margin-top: 10px;
-	margin-bottom: 10px;	
+h2 {
+    text-align: center;
+    color: blue;
+    font-size: 160%;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /*Разделение страниц и настройка свойств этих частей*/
-.pagePart{
-	display: block;
-	background-color: #efefef;
-	background-size: auto auto;
+.pagePart {
+    display: block;
+    background-color: #efefef;
+    background-size: auto auto;
     height: 900px;
     width: 639px;
-	background-repeat: no-repeat;
-	border-color: black;
-	border-style: solid;
-	border-width: 2px;
-	position: absolute;
+    background-repeat: no-repeat;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+    position: absolute;
 }
 
 /*Центральная часть*/
-#partCenter{
-	left: 641px;
-	width: 779px;
+#partCenter {
+    left: 641px;
+    width: 779px;
 }
 
 /*Правая часть*/
-#partRight{	
-	left: 1418px;
-	width: 490px;
-	}
-
-.name {	
-	text-align: center;
-	font-size: 140%;
-	font-weight: normal;
-	color: black;
-	position: relative;
-	overflow: auto;
+#partRight {
+    left: 1418px;
+    width: 490px;
 }
 
-#nameGears{
-	margin-top:10px;
-	margin-bottom: 10px;
+.name {
+    text-align: center;
+    font-size: 140%;
+    font-weight: normal;
+    color: black;
+    position: relative;
+    overflow: auto;
+}
+
+#nameGears {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #nameDrawingProfile {
-	margin-top: 30px;	
-	margin-bottom: 10px;
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
 
 /*Параметры выводимых картинок*/
 .images {
-	display: block;
-	background-size: auto 360px;
-	background-position: center center;
-	left: 0;
+    display: block;
+    background-size: auto 360px;
+    background-position: center center;
+    left: 0;
     height: 360px;
     width: 641px;
-	background-repeat: no-repeat;
-	position: relative;
-	overflow: auto;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: auto;
 }
 
 #imageGear {
-	background-image: url("../images/cylindrical_gears_external_01.png");
+    background-image: url("../images/cylindrical_gears_external_01.png");
 }
 
-#imageDrawingProfile{
-	background-image: url("../images/cylindrical_gears_standert_profile.png");
+#imageDrawingProfile {
+    background-image: url("../images/cylindrical_gears_standert_profile.png");
 }
 
 /*Стили центральной колонки*/
 
 
-.labelMy{
-	text-align: center;
-	font-size: 140%;
-	font-weight: normal;
-	color: black;
-	margin-top: 20px;
-	margin-bottom: 20px;	
+.labelMy {
+    text-align: center;
+    font-size: 140%;
+    font-weight: normal;
+    color: black;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-table{	
-	border-collapse: collapse;
-	border-style: solid;
-	border-width: 1px;
-	margin-top: 10px;
-}
-
-
-table#dataEntry{
-	border-spacing: 0px;
-	width:780px;
-	height: 450px;
-}
-
-table#postEntry{
-	border-spacing: 0px;
-	width:492px;
-	height: 852px;
-	
-}
-
-table#points{
-	border-spacing: 0px;
-	width: 950px;
-	padding: 5px;
-	
-}
-
-th,td {
-	border-spacing: 0px;
-	border-style: solid;
-	border-width: 2px;
-	position: relative;
-	text-align: center;	
-	padding: 2px;
-	font-size: 120%;
+table {
+    border-collapse: collapse;
+    border-style: solid;
+    border-width: 1px;
+    margin-top: 10px;
 }
 
 
-.nameParametr{
-	width: 250px;
-}
-.entry{
-	text-align: left;	
-	width: 100px;
+table#dataEntry {
+    border-spacing: 0px;
+    width: 780px;
+    height: 450px;
 }
 
-#alfaCorn,#alfaMin,#alfaSec,#betaCorn,#betaMin,#betaSec{
-	margin-left: 20px;
+table#postEntry {
+    border-spacing: 0px;
+    width: 492px;
+    height: 852px;
+
 }
 
-#right{
-	display: none;
+table#points {
+    border-spacing: 0px;
+    width: 1890px;
+    padding: 5px;
+
+}
+
+th,
+td {
+    border-spacing: 0px;
+    border-style: solid;
+    border-width: 2px;
+    position: relative;
+    text-align: center;
+    padding: 2px;
+    font-size: 120%;
 }
 
 
-input[type="text"]{
-	width: 50px;
-	border: 1px, solid, black;
-	margin: 2px;
-	padding: 2px;	
-	text-align: center;
-	font-size: 100%;
-	outline: none;
+.nameParametr {
+    width: 250px;
 }
 
-#scale{
-	border: 1px, solid, black;
-	margin: 10px;
-	padding: 10px;	
-	text-align: center;
+.entry {
+    text-align: left;
+    width: 100px;
 }
+
+#alfaCorn,
+#alfaMin,
+#alfaSec,
+#betaCorn,
+#betaMin,
+#betaSec {
+    margin-left: 20px;
+}
+
+#right {
+    display: none;
+}
+
+
+input[type="text"] {
+    width: 50px;
+    border: 1px, solid, black;
+    margin: 2px;
+    padding: 2px;
+    text-align: center;
+    font-size: 100%;
+    outline: none;
+}
+
+
+
 
 #buttonCalc {
-	margin-top: 20px;
-	text-align: center;
-	text-decoration: none;
-	text-transform: uppercase;
-	font-size: 25px;
-	background-color: #cb6868;
-	left: 25%;
-	width: 50%;
-	height: 30px;
-	border: 1px solid black;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 25px;
+    background-color: #cb6868;
+    left: 25%;
+    width: 50%;
+    height: 30px;
+    border: 1px solid black;
     border-radius: 2px 2px 2px 2px;
-	margin-top: 20px;
-	color: #f3dad1;
-	cursor: pointer;
-	position: relative;
+    margin-top: 20px;
+    color: #f3dad1;
+    cursor: pointer;
+    position: relative;
 }
 
-#buttonCalc:focus{
-	color: #f3dad1;	
-	background-color: #cb6868;
+#buttonCalc:focus {
+    color: #f3dad1;
+    background-color: #cb6868;
 }
 
-#buttonCalc:hover{
-	background-color: #d75359;
-	color: #f3dad1;
+#buttonCalc:hover {
+    background-color: #d75359;
+    color: #f3dad1;
 }
 
-#buttonCalc:active{
-	
-	background-color: #d75359;
-	border: 2px solid black;
-	color: #f3dad1;
+#buttonCalc:active {
+
+    background-color: #d75359;
+    border: 2px solid black;
+    color: #f3dad1;
 }
 
 #buttonXY {
-	margin-top: 20px;
-	text-align: center;
-	text-decoration: none;
-	text-transform: uppercase;
-	font-size: 25px;
-	background-color: #cb6868;
-	left: 25%;
-	width: 50%;
-	height: 60px;
-	border: 1px solid black;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 25px;
+    background-color: #cb6868;
+    left: 25%;
+    width: 50%;
+    height: 60px;
+    border: 1px solid black;
     border-radius: 2px 2px 2px 2px;
-	margin-top: 20px;
-	color: #f3dad1;
-	cursor: pointer;
-	position: relative;
-	display: none;
+    margin-top: 20px;
+    color: #f3dad1;
+    cursor: pointer;
+    position: relative;
+    display: none;
 }
 
-#buttonXY:focus{
-	color: #f3dad1;	
-	background-color: #cb6868;
+#buttonXY:focus {
+    color: #f3dad1;
+    background-color: #cb6868;
 }
 
-#buttonXY:hover{
-	background-color: #d75359;
-	color: #f3dad1;;
+#buttonXY:hover {
+    background-color: #d75359;
+    color: #f3dad1;
+    ;
 }
 
-#buttonXY:active{
-	background-color: #d75359;
-	border: 2px solid black;
-	color: #f3dad1;
+#buttonXY:active {
+    background-color: #d75359;
+    border: 2px solid black;
+    color: #f3dad1;
 }
 
 #buttonExit {
-	margin-top: 20px;
-	text-align: center;
-	text-decoration: none;
-	text-transform: uppercase;
-	font-size: 25px;
-	background-color: #cb6868;
-	left: 25%;
-	width: 50%;
-	height: 30px;
-	border: 1px solid black;
+    margin-top: 20px;
+    text-align: center;
+	left: 33%;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 25px;
+    background-color: #cb6868;
+    width:  600px;
+    height: 40px;
+    border: 1px solid black;
     border-radius: 2px 2px 2px 2px;
-	margin-top: 20px;
-	color: #f3dad1;
-	cursor: pointer;
-	position: relative;
-}
-#buttonExit:focus{
-	color: #f3dad1;	
-	background-color: #cb6868;
-	}
-
-#buttonExit:hover{
-	background-color: #d75359;
-	color: #f3dad1;
+    margin-top: 20px;
+    color: #f3dad1;
+    cursor: pointer;
+    position: relative;
 }
 
-#buttonExit:active{
-	background-color: #d75359;
-	border: 2px solid black;
-	color: #f3dad1;
+#buttonExit:focus {
+    color: #f3dad1;
+    background-color: #cb6868;
 }
-	
+
+#buttonExit:hover {
+    background-color: #d75359;
+    color: #f3dad1;
+}
+
+#buttonExit:active {
+    background-color: #d75359;
+    border: 2px solid black;
+    color: #f3dad1;
+}
+
 #buttonBuild {
-	margin-top: 20px;
-	text-align: center;
-	text-decoration: none;
-	text-transform: uppercase;
-	font-size: 25px;
-	background-color: #cb6868;
-	left: 25%;
-	width: 50%;
-	height: 30px;
-	border: 1px solid black;
+    margin-top: 20px;
+    text-align: center;
+	left: 33%;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 25px;
+    background-color: #cb6868;
+    width: 600px;
+    height: 40px;
+    border: 1px solid black;
     border-radius: 2px 2px 2px 2px;
-	margin-top: 20px;
-	color: #f3dad1;
-	cursor: pointer;
-	position: relative;
-}
-#buttonBuild:focus{
-	color: #f3dad1;	
-	background-color: #cb6868;
+    margin-top: 20px;
+    color: #f3dad1;
+    cursor: pointer;
+    position: relative;
 }
 
-
-#buttonBuild:hover{
-	top: 4px;
-	background-color: #d75359;
-	color: #f3dad1;
-	cursor: pointer;
-	position: relative;
-	}
-
-#buttonBuild:active{
-	background-color: #d75359;
-	border: 2px solid black;
-	color: #f3dad1;
+#buttonBuild:focus {
+    color: #f3dad1;
+    background-color: #cb6868;
 }
 
-
-
-
-#pointsEvolvent{
-	display: none;
-	border: black;
-	border-style: solid;
-	border-width: 2px;
-	top: 0px;
-	width: 950px;
-	height: 965px;
-	background-repeat: no-repeat;
-	background-color: #efefef;
-	overflow: auto;
-	position: absolute;
+#buttonBuild:hover {
+    background-color: #d75359;
+    color: #f3dad1;
 }
 
-#projection{
-	display: none;
-	border: black;
-	border-style: solid;
-	border-width: 2px;
-	left: 50%;
-	top: 20px;
-	width: 50%;
-	height: 95%;
-	background-repeat: no-repeat;
-	background-color: #efefef;
+#buttonBuild:active {
+    background-color: #d75359;
+    border: 2px solid black;
+    color: #f3dad1;
+}
+
+#pointsEvolvent {
+    display: none;
+    border: black;
+    border-style: solid;
+    border-width: 2px;
+    top: 0px;
+    width: 1900px;
+    height: 965px;
+    background-repeat: no-repeat;
+    background-color: #efefef;
+    overflow: auto;
+    position: absolute;
+}
+
+#tablePoints {
+	display: block; 
+	height: 640px;	
+	border-bottom: black;
+	border-bottom-style: solid;
+    border-bottom-width: 2px;
 	overflow: scroll;
-	position: absolute;
+    position: absolute;
+	
 }
 
-#canvas{
-    direction:rtl;
+table#points {
+    border-spacing: 0px;
+	width: 1880px;	
+}
+
+
+
+#scale {
+	top: 650px;
+    text-align: center;
+	background-color: #efefef;	
+	position: relative;
+}
+
+
+
+#projection {
+    display: none;
+    border: black;
+    border-style: solid;
+    border-width: 2px;
+    left: 658px;
+    top: 61px;
+    width: 1250px;
+    height: 904px;
+    background-repeat: no-repeat;
+    background-color: #efefef;
+    overflow: scroll;
+    position: absolute;
+}
+
+#canvas {
+    direction: rtl;
     border: black;
     border-style: solid;
     border-width: 1px;
-    left: 0;
+    left: -1px;
     top: 30px;
     position: absolute;
-    overflow-x: auto; /* прокрутка по горизонтали */
-    overflow-y: auto; /* прокрутка по вертикали */
-
-
-
+    overflow-x: auto;
+    /* прокрутка по горизонтали */
+    overflow-y: auto;
+    /* прокрутка по вертикали */
 }
 
+footer {
+	margin-top: 20px;
+	font-size: 80%;
+	text-align: center;
+	padding: 7px 0px 0px 20px;
+	border: black;
+    border-style: solid;
+    border-width: 1px;
+}
